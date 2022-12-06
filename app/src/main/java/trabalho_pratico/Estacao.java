@@ -1,5 +1,5 @@
 package app.src.main.java.trabalho_pratico;
 
-public class Comboio {
+public class Estacao {
     
 }
