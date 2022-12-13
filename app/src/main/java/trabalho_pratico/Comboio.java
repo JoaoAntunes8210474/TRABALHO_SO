@@ -29,7 +29,7 @@ public class Comboio {
         return Arrays.copyOf(this.listaPassageiros, MAX_PASSAGEIROS);
     }
 
-    public void add(Passageiro passageiro) {
+    public void add(Passageiro passageiro) throws MaxCapacityException{
         if (this.count == MAX_PASSAGEIROS) {
             throw new MaxCapacityException("Comboio cheio!");
         }
