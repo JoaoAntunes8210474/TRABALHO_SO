@@ -1,4 +1,6 @@
-public class MaxCapacityException extends Exception{
+package exceptions;
+
+public class InvalidBilheteException extends Exception{
     /**
      * Constructs a new exception with the specified detail message.  The
      * cause is not initialized, and may subsequently be initialized by
@@ -7,7 +9,7 @@ public class MaxCapacityException extends Exception{
      * @param   message   the detail message. The detail message is saved for
      *          later retrieval by the {@link #getMessage()} method.
      */
-    public MaxCapacityException(String message) {
+    public InvalidBilheteException(String message) {
         super(message);
     }
 
@@ -25,7 +27,7 @@ public class MaxCapacityException extends Exception{
      *         unknown.)
      * @since  1.4
      */
-    public MaxCapacityException(String message, Throwable cause) {
+    public InvalidBilheteException(String message, Throwable cause) {
         super(message, cause);
     }
 }
