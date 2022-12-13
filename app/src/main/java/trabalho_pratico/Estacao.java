@@ -34,7 +34,7 @@ public class Estacao {
     public void add(Passageiro passageiro) {
 
         if (this.count == MAX_PASSAGEIROS) {
-            Passageiro[] listaTemp = Arrays.copyOf(this.listaPassageiros, (this.listaPassageiros.length * 2));
+            Passageiro[] listaTemp = Arrays.copyOf(this.listaPassageiros, (MAX_PASSAGEIROS * 2));
             this.listaPassageiros = listaTemp;
         }
 
