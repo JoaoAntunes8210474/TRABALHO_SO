@@ -9,37 +9,44 @@ public class Linha {
     /*
      * Número de comboios na linha
      */
-    private int nComboios;
+    private static int numeroComboios;
 
     /*
-     * Número da linha
+     * Identificador da linha
      */
-    private int nLinha;
+    private int idLinhas;
 
     public Linha(Estacao estacaoChegada) {
         this.sentido = estacaoChegada;
-        this.nComboios = 0;
-        this.nLinha = 0;
+        this.idLinhas = 0;
+        numeroComboios = 0;
     }
 
-    public void setSentido(Estacao sentido){
+    public Estacao getSentido() {
+        return this.sentido;
+    }
+
+    public int getIdLinhas() {
+        return this.idLinhas;
+    }
+
+    public int getNumeroComboiosLinha() {
+        return numeroComboios;
+    }
+
+    public void setSentido(Estacao sentido) {
         this.sentido = sentido;
     }
-    public Estacao getSentido(){
-        return this.sentido;
-    } 
 
-    public void addCombio(){
-        this.nComboios++;
-    }
-    public void subtractComboio(){
-        this.nComboios--;
+    public void setIdLinhas(int idLinhas) {
+        this.idLinhas = idLinhas;
     }
 
-    public void setNDeLinha(int nDeLinha){
-        this.nDeLinha = nDeLinha;
+    public void addCombio() {
+        numeroComboios++;
     }
-    public int getNDeLinha(){
-        return this.nDeLinha;
+
+    public void removeComboio() {
+        numeroComboios--;
     }
 }

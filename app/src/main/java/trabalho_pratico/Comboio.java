@@ -47,14 +47,29 @@ public class Comboio {
         this.estacaoChegada = estacaoChegada;
     }
 
+    /**
+     * Returns the number of passengers
+     * 
+     * @return number of passengers
+     */
     public int getCount() {
         return this.count;
     }
 
+    /**
+     * Returns a copy of the list of passengers
+     * 
+     * @return copy of the list of passengers
+     */
     public Passageiro[] getListaPassageiros() {
-        return Arrays.copyOf(this.listaPassageiros, MAX_PASSAGEIROS);
+        return Arrays.copyOf(this.listaPassageiros, this.listaPassageiros.length);
     }
 
+    /**
+     * Returns
+     * 
+     * @return
+     */
     public Estacao getEstacaoPartida() {
         return this.estacaoPartida;
     }
@@ -63,17 +78,27 @@ public class Comboio {
         return this.estacaoChegada;
     }
 
-    /*
+    public Horario getHorarioComboio() {
+        return this.horario;
+    }
+
+    public Linha getDirecaoComboio() {
+        return this.direcao;
+    }
+
+    /**
      * Adds a passenger to the train if his ticket is valid
      * 
-     * 
+     * @param passageiro the passenger to add to the train
+     * @throws MaxCapacityException when the train is full
+     * @throws InvalidBilheteException when the passenger doesn't have a valid ticket
      */
     public void add(Passageiro passageiro) throws MaxCapacityException, InvalidBilheteException{
         if (this.count == MAX_PASSAGEIROS) {
             throw new MaxCapacityException("Comboio cheio!");
         }
 
-        if (passageiro.getBilhete().isValid(this.horario)) {
+        if (passageiro.getBilhete().isValid(this.horario, this.estacaoPartida, this.estacaoChegada)) {
             this.count++;
             this.listaPassageiros[this.count - 1] = passageiro;
         } else {
