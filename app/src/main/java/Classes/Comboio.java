@@ -1,9 +1,10 @@
-package trabalho_pratico;
+package Classes;
 
 import java.time.LocalTime;
 import java.util.Arrays;
 
-import exceptions.*;
+import Exceptions.InvalidBilheteException;
+import Exceptions.MaxCapacityException;
 
 public class Comboio {
     /*
@@ -29,6 +30,9 @@ public class Comboio {
      */
     private Estacao estacaoChegada;
 
+    /**
+     * Horário do comboio
+     */
     private Horario horario;
 
     /*
