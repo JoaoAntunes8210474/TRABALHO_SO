@@ -1,4 +1,4 @@
-package trabalho_pratico;
+package Classes;
 
 public class Passageiro {
     /*
