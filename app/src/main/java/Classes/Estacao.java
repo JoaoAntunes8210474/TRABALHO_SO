@@ -82,6 +82,10 @@ public class Estacao {
 
     }
 
+    public void removeComboio(Comboio comboio) {
+        this.listaComboios.remove(comboio);
+    }
+
     public void addLinhas(Linha linha) throws MaxCapacityException {
         if (this.count == MAX_LINHAS) {
             throw new MaxCapacityException("A estação atingiu o limite de linhas!");
