@@ -59,7 +59,7 @@ public class Estacao {
     public void addPassageiro(Passageiro passageiro) {
         this.listaPassageiros.add(passageiro);
     }
-
+    // o ideal era termos um run que faz isto
     public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio) {
         try {
             this.listaComboios.get(this.listaComboios.indexOf(comboio)).add(passageiro);
@@ -71,6 +71,10 @@ public class Estacao {
             System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
             e.printStackTrace();
         }
+    }
+
+    public void movePassageiroToEstacao(Comboio comboio) {
+
     }
 
     public void addComboio(Comboio comboio) throws MaxCapacityException {
