@@ -1,6 +1,6 @@
 package Classes;
 
-public class Passageiro {
+public class Passageiro implements Runnable{
     /*
      * Nome do passageiro
      */
@@ -39,5 +39,13 @@ public class Passageiro {
 
     public Bilhete getBilhete() {
         return this.bilhete;
+    }
+
+    public void run() {
+        Comboio comboioUsadoPeloPassageiro = this.bilhete.getEstacaoPartida().getComboioDestinoPassageiro(this);
+
+        if (comboioUsadoPeloPassageiro != null) {
+            this.bilhete.getEstacaoPartida().movePassageiroToComboio(this, comboioUsadoPeloPassageiro);
+        }
     }
 }
