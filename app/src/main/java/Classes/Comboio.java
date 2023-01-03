@@ -6,43 +6,23 @@ import java.util.Arrays;
 import Exceptions.InvalidBilheteException;
 import Exceptions.MaxCapacityException;
 
-public class Comboio {
-    /*
-     * Número máximo de passageiros no comboio
-     */
+public class Comboio implements Runnable {
+    // Número máximo de passageiros no comboio
     private static final int MAX_PASSAGEIROS = 200;
-    /*
-     * Lista de passageiros de um conboio
-     */
+    // Lista de passageiros de um conboio
     private Passageiro[] listaPassageiros;
-    /*
-     * Número de passageiros no comboio
-     */
+    // Número de passageiros no comboio
     private int count;
-
-    /*
-     * Estação de partida do comboio
-     */
+    // Estação de partida do comboio
     private Estacao estacaoPartida;
-
-    /*
-     * Estacao de chegada do comboio
-     */
+    // Estacao de chegada do comboio
     private Estacao estacaoChegada;
-
-    /**
-     * Horário do comboio
-     */
+    // Horário do comboio
     private Horario horario;
+    // Direção do comboio
+    private Linha troco;
 
-    /*
-     * Direção do comboio
-     */
-    private Linha direcao;
-
-    /*
-     * Construtor do comboio
-     */
+    // Construtor
     public Comboio(Estacao estacaoPartida, Estacao estacaoChegada, LocalTime tempoPartida, LocalTime tempoChegada) {
         this.listaPassageiros = new Passageiro[MAX_PASSAGEIROS];
         this.count = 0;
@@ -87,17 +67,18 @@ public class Comboio {
     }
 
     public Linha getDirecaoComboio() {
-        return this.direcao;
+        return this.troco;
     }
 
     /**
      * Adds a passenger to the train if his ticket is valid
      * 
      * @param passageiro the passenger to add to the train
-     * @throws MaxCapacityException when the train is full
-     * @throws InvalidBilheteException when the passenger doesn't have a valid ticket
+     * @throws MaxCapacityException    when the train is full
+     * @throws InvalidBilheteException when the passenger doesn't have a valid
+     *                                 ticket
      */
-    public void add(Passageiro passageiro) throws MaxCapacityException, InvalidBilheteException{
+    public void add(Passageiro passageiro) throws MaxCapacityException, InvalidBilheteException {
         if (this.count == MAX_PASSAGEIROS) {
             throw new MaxCapacityException("Comboio cheio!");
         }
@@ -110,5 +91,26 @@ public class Comboio {
         }
     }
 
-    
+    @Override
+    public void run() {
+        System.out.println("A partir da estacao " + this.estacaoPartida.getNome());
+        try {
+            this.troco.moveComboioFromDepartureStationToArrivalStation(estacaoPartida, this);
+            this.estacaoPartida = this.troco.getEstacaoArrival(estacaoPartida);
+            Thread.sleep(2000);
+            System.out.println("A chegar à estacao " + this.estacaoPartida.getNome());
+            Thread.sleep(1000);
+            System.out.println("A desembarcar passageiros...");
+            // Desembarca
+            // Muda horario
+            // Embarca passageiros e repete o processo até chegar à estacao destino
+        } catch (MaxCapacityException e1) {
+            System.out.println("");
+            e1.printStackTrace();
+        } catch (InterruptedException e) {
+            System.out.println("");
+            e.printStackTrace();
+        }
+
+    }
 }

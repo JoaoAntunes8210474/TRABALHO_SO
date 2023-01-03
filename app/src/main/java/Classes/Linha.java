@@ -1,52 +1,69 @@
 package Classes;
 
-public class Linha {
-    /*
-     * Sentido da linha
-     */
-    private Estacao sentido;
+import Exceptions.MaxCapacityException;
 
-    /*
-     * Número de comboios na linha
-     */
+public class Linha {
+    // Nome da linha
+    private String sentido;
+    // Estações de comboio
+    private Estacao[] estacoesAssociadas;
+    // Número de comboios na linha
     private static int numeroComboios;
 
-    /*
-     * Identificador da linha
-     */
-    private int idLinhas;
-
-    public Linha(Estacao estacaoChegada) {
-        this.sentido = estacaoChegada;
-        this.idLinhas = 0;
+    // Método construtor
+    public Linha(Estacao primeiraEstacao, Estacao segundaEstacao) {
+        StringBuilder sb = new StringBuilder("Linha ");
+        this.sentido = sb.append(primeiraEstacao.getNome()).append(" - ").append(segundaEstacao.getNome()).toString();
+        this.estacoesAssociadas = new Estacao[2];
+        this.estacoesAssociadas[0] = primeiraEstacao;
+        this.estacoesAssociadas[1] = segundaEstacao;
         numeroComboios = 0;
     }
 
-    public Estacao getSentido() {
+    public String getSentido() {
         return this.sentido;
-    }
-
-    public int getIdLinhas() {
-        return this.idLinhas;
     }
 
     public int getNumeroComboiosLinha() {
         return numeroComboios;
     }
 
-    public void setSentido(Estacao sentido) {
+    public void setSentido(String sentido) {
         this.sentido = sentido;
     }
 
-    public void setIdLinhas(int idLinhas) {
-        this.idLinhas = idLinhas;
-    }
-
-    public void addCombio() {
+    public void add() {
         numeroComboios++;
     }
 
     public void removeComboio() {
         numeroComboios--;
+    }
+
+    public Estacao getEstacaoArrival(Estacao estacao) {
+        return this.estacoesAssociadas[findEstacaoArrival(estacao)];
+    }
+
+    public int findEstacao(Estacao estacao) {
+        for (int i = 0; i < this.estacoesAssociadas.length; i++) {
+            if (this.estacoesAssociadas[i].getNome().equals(estacao.getNome())) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public int findEstacaoArrival(Estacao estacao) {
+        if (this.estacoesAssociadas[0].getNome().equals(estacao.getNome())) {
+            return 1;
+        } 
+
+        return 0;
+    }
+
+    public void moveComboioFromDepartureStationToArrivalStation(Estacao estacaoPartida, Comboio comboio) throws MaxCapacityException {
+        this.getEstacaoArrival(estacaoPartida).addComboio(comboio);
+        this.estacoesAssociadas[findEstacao(estacaoPartida)].removeComboio(comboio);
     }
 }
