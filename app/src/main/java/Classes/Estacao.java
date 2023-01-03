@@ -6,7 +6,7 @@ import java.util.Arrays;
 import Exceptions.InvalidBilheteException;
 import Exceptions.MaxCapacityException;
 
-public class Estacao {
+public class Estacao{
 
     private static final int MAX_LINHAS = 2;
     //
@@ -30,6 +30,17 @@ public class Estacao {
         this.linhas = new Linha[MAX_LINHAS];
         this.listaPassageiros = new ArrayList<>();
         this.count = 0;
+    }
+
+    protected Comboio getComboioDestinoPassageiro(Passageiro passageiro) {
+        for (int i = 0; i < passageiro.getBilhete().getEstacaoPartida().listaComboios.size(); i++) {
+            if (passageiro.getBilhete().getEstacaoDestino() == passageiro.getBilhete().getEstacaoPartida().listaComboios.get(i).getDirecaoComboio().getEstacaoArrival(passageiro.getBilhete().getEstacaoPartida())) {
+                return passageiro.getBilhete().getEstacaoPartida().listaComboios.get(i);
+            }
+            
+        }
+
+        return null;
     }
 
     public int getCount() {
@@ -59,7 +70,7 @@ public class Estacao {
     public void addPassageiro(Passageiro passageiro) {
         this.listaPassageiros.add(passageiro);
     }
-
+    // o ideal era termos um run que faz isto
     public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio) {
         try {
             this.listaComboios.get(this.listaComboios.indexOf(comboio)).add(passageiro);
@@ -73,6 +84,10 @@ public class Estacao {
         }
     }
 
+    public void movePassageiroToEstacao(Comboio comboio) {
+
+    }
+
     public void addComboio(Comboio comboio) throws MaxCapacityException {
         if (this.listaComboios.size() < MAX_COMBOIOS) {
             this.listaComboios.add(comboio);
@@ -80,6 +95,10 @@ public class Estacao {
             throw new MaxCapacityException("A estação atingiu o limite de comboios!");
         }
 
+    }
+
+    public void removeComboio(Comboio comboio) {
+        this.listaComboios.remove(comboio);
     }
 
     public void addLinhas(Linha linha) throws MaxCapacityException {
