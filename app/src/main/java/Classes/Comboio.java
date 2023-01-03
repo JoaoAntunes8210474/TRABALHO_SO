@@ -91,6 +91,10 @@ public class Comboio implements Runnable {
         }
     }
 
+    public Passageiro get(int integer) {
+        return this.listaPassageiros[integer];
+    }
+
     @Override
     public void run() {
         try {
@@ -102,12 +106,12 @@ public class Comboio implements Runnable {
             System.out.println("A chegar à estacao " + this.estacaoPartida.getNome());
             Thread.sleep(1000);
             System.out.println("A desembarcar passageiros...");
-            this.movePassageiroToEstacao(this);
+            this.estacaoPartida.movePassageiroToEstacao(this);
             this.horario.getHoraChegada().plusMinutes(30);
-            // Criar uma thread da classe que verifica por conflitos de horário 
+            Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.)) 
             // Embarca passageiros e repete o processo até chegar à estacao destino
         } catch (MaxCapacityException e1) {
-            System.out.println("");
+            System.out.println("" + this.troco.getEstacaoArrival(estacaoChegada).getNome() + " está sobrelotada!!!");
             e1.printStackTrace();
         } catch (InterruptedException e) {
             System.out.println("");
