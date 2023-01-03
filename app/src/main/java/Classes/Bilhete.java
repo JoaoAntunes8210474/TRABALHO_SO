@@ -22,4 +22,12 @@ public class Bilhete {
         
         return false;
     }
+
+    public Estacao getEstacaoPartida() {
+        return this.partida;
+    }
+
+    public Estacao getEstacaoDestino() {
+        return this.destino;
+    }
 }

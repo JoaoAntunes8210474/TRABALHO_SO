@@ -8,7 +8,7 @@ import Exceptions.MaxCapacityException;
 
 public class Comboio implements Runnable {
     // Número máximo de passageiros no comboio
-    private static final int MAX_PASSAGEIROS = 200;
+    private static final int MAX_PASSAGEIROS = 10;
     // Lista de passageiros de um conboio
     private Passageiro[] listaPassageiros;
     // Número de passageiros no comboio
@@ -93,16 +93,18 @@ public class Comboio implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("A partir da estacao " + this.estacaoPartida.getNome());
         try {
+            this.wait();
+            System.out.println("A partir da estacao " + this.estacaoPartida.getNome());
             this.troco.moveComboioFromDepartureStationToArrivalStation(estacaoPartida, this);
             this.estacaoPartida = this.troco.getEstacaoArrival(estacaoPartida);
             Thread.sleep(2000);
             System.out.println("A chegar à estacao " + this.estacaoPartida.getNome());
             Thread.sleep(1000);
             System.out.println("A desembarcar passageiros...");
-            // Desembarca
-            // Muda horario
+            this.movePassageiroToEstacao(this);
+            this.horario.getHoraChegada().plusMinutes(30);
+            // Criar uma thread da classe que verifica por conflitos de horário 
             // Embarca passageiros e repete o processo até chegar à estacao destino
         } catch (MaxCapacityException e1) {
             System.out.println("");

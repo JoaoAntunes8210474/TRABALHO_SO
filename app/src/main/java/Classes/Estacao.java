@@ -6,7 +6,7 @@ import java.util.Arrays;
 import Exceptions.InvalidBilheteException;
 import Exceptions.MaxCapacityException;
 
-public class Estacao {
+public class Estacao{
 
     private static final int MAX_LINHAS = 2;
     //
@@ -30,6 +30,17 @@ public class Estacao {
         this.linhas = new Linha[MAX_LINHAS];
         this.listaPassageiros = new ArrayList<>();
         this.count = 0;
+    }
+
+    protected Comboio getComboioDestinoPassageiro(Passageiro passageiro) {
+        for (int i = 0; i < passageiro.getBilhete().getEstacaoPartida().listaComboios.size(); i++) {
+            if (passageiro.getBilhete().getEstacaoDestino() == passageiro.getBilhete().getEstacaoPartida().listaComboios.get(i).getDirecaoComboio().getEstacaoArrival(passageiro.getBilhete().getEstacaoPartida())) {
+                return passageiro.getBilhete().getEstacaoPartida().listaComboios.get(i);
+            }
+            
+        }
+
+        return null;
     }
 
     public int getCount() {
