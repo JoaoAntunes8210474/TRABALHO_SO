@@ -91,6 +91,10 @@ public class Comboio implements Runnable {
         }
     }
 
+    public Passageiro get(int integer) {
+        return this.listaPassageiros[integer];
+    }
+
     @Override
     public void run() {
         try {
