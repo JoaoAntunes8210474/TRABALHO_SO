@@ -56,7 +56,7 @@ public class Linha {
 
     public int findEstacaoArrival(Estacao estacao) {
         if (this.estacoesAssociadas[0].getNome().equals(estacao.getNome())) {
-            return 1;
+            return 1; 
         } 
 
         return 0;
