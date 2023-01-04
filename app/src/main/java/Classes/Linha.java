@@ -6,9 +6,6 @@ public class Linha {
     // Nome da linha
     private String sentido;
     // Estações de comboio
-    private Estacao[] estacoesAssociadas;
-    // Número de comboios na linha
-    private static int numeroComboios;
 
     // Método construtor
     public Linha(Estacao primeiraEstacao, Estacao segundaEstacao) {

@@ -108,7 +108,7 @@ public class Comboio implements Runnable {
             System.out.println("A desembarcar passageiros...");
             this.estacaoPartida.movePassageiroToEstacao(this);
             this.horario.getHoraChegada().plusMinutes(30);
-            Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.)) 
+            Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.Main.getAllComboios())); 
             // Embarca passageiros e repete o processo até chegar à estacao destino
         } catch (MaxCapacityException e1) {
             System.out.println("" + this.troco.getEstacaoArrival(estacaoChegada).getNome() + " está sobrelotada!!!");

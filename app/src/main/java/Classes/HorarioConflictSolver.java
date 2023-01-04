@@ -9,6 +9,7 @@ public class HorarioConflictSolver implements Runnable{
     public HorarioConflictSolver(ArrayList<Comboio> comboios) {
         this.comboios = comboios;
     }
+    
 
     private boolean hasConflicts() {
         for (int i = 0; i < this.comboios.size(); i++) {
