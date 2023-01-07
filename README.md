@@ -8,7 +8,7 @@ SeccaoCritica
 
 ObjetoPartilhado
 
-	- Horario
+	- Linhas
 
 SituacaoCompeticao 
 
