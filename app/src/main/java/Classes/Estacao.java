@@ -84,8 +84,11 @@ public class Estacao{
         }
     }
 
-    public void movePassageiroToEstacao(Comboio comboio) {
-
+    public void movePassageirosToEstacao(Comboio comboio) {
+        for (int i=0; i<comboio.getListaPassageiros().length; i++) {
+            this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
+            this.listaComboios.get(this.listaComboios.indexOf(comboio)).remove(comboio.getListaPassageiros());
+        }
     }
 
     public void addComboio(Comboio comboio) throws MaxCapacityException {
