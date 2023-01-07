@@ -9,6 +9,8 @@ SeccaoCritica
 ObjetoPartilhado
 
 	- Linhas
+	- Filewriter
+	- Estacoes (talvez)
 
 SituacaoCompeticao 
 
