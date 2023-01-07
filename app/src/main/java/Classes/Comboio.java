@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import Exceptions.InvalidBilheteException;
 import Exceptions.MaxCapacityException;
+import Main.Main;
 
 public class Comboio implements Runnable {
     // Número máximo de passageiros no comboio
@@ -99,6 +100,7 @@ public class Comboio implements Runnable {
     public void run() {
         try {
             this.wait();
+            this.troco.getSemaphore().acquire();
             System.out.println("A partir da estacao " + this.estacaoPartida.getNome());
             this.troco.moveComboioFromDepartureStationToArrivalStation(estacaoPartida, this);
             this.estacaoPartida = this.troco.getEstacaoArrival(estacaoPartida);
@@ -109,6 +111,7 @@ public class Comboio implements Runnable {
             this.estacaoPartida.movePassageiroToEstacao(this);
             this.horario.getHoraChegada().plusMinutes(30);
             Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.Main.getAllComboios())); 
+            verificarConflitosHorário.start();
             // Embarca passageiros e repete o processo até chegar à estacao destino
         } catch (MaxCapacityException e1) {
             System.out.println("" + this.troco.getEstacaoArrival(estacaoChegada).getNome() + " está sobrelotada!!!");
@@ -116,6 +119,8 @@ public class Comboio implements Runnable {
         } catch (InterruptedException e) {
             System.out.println("");
             e.printStackTrace();
+        } finally {
+            this.troco.getSemaphore().release();
         }
 
     }

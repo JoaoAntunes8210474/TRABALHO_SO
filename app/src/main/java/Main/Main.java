@@ -12,7 +12,11 @@ public class Main {
     private static ArrayList<Linha> linhas;
 
     private void startModules() {
+        
+    }
 
+    public static ArrayList<Comboio> getAllComboios() {
+        return comboios;
     }
 
     public static ArrayList<Comboio> getAllComboios() {

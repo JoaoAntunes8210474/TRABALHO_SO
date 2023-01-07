@@ -1,11 +1,16 @@
 package Classes;
 
+import java.util.concurrent.Semaphore;
+
 import Exceptions.MaxCapacityException;
 
 public class Linha {
     // Nome da linha
     private String sentido;
     // Estações de comboio
+    private Estacao[] estacoesAssociadas;
+    // Número de comboios na linha
+    private Semaphore semaphore;
 
     // Método construtor
     public Linha(Estacao primeiraEstacao, Estacao segundaEstacao) {
@@ -14,31 +19,23 @@ public class Linha {
         this.estacoesAssociadas = new Estacao[2];
         this.estacoesAssociadas[0] = primeiraEstacao;
         this.estacoesAssociadas[1] = segundaEstacao;
-        numeroComboios = 0;
+        this.semaphore = new Semaphore(1);
     }
 
     public String getSentido() {
         return this.sentido;
     }
 
-    public int getNumeroComboiosLinha() {
-        return numeroComboios;
-    }
-
     public void setSentido(String sentido) {
         this.sentido = sentido;
     }
 
-    public void add() {
-        numeroComboios++;
-    }
-
-    public void removeComboio() {
-        numeroComboios--;
-    }
-
     public Estacao getEstacaoArrival(Estacao estacao) {
         return this.estacoesAssociadas[findEstacaoArrival(estacao)];
+    }
+
+    public Semaphore getSemaphore() {
+        return this.semaphore;
     }
 
     public int findEstacao(Estacao estacao) {
