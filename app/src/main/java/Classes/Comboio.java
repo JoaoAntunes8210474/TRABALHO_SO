@@ -92,6 +92,10 @@ public class Comboio implements Runnable {
         }
     }
 
+    public void removeAll() {
+        Arrays.fill(this.listaPassageiros, null);
+    }
+
     public Passageiro get(int integer) {
         return this.listaPassageiros[integer];
     }
@@ -108,9 +112,9 @@ public class Comboio implements Runnable {
             System.out.println("A chegar à estacao " + this.estacaoPartida.getNome());
             Thread.sleep(1000);
             System.out.println("A desembarcar passageiros...");
-            this.estacaoPartida.movePassageiroToEstacao(this);
+            this.estacaoPartida.movePassageirosToEstacao(this);
             this.horario.getHoraChegada().plusMinutes(30);
-            Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.Main.getAllComboios())); 
+            Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.getAllComboios())); 
             verificarConflitosHorário.start();
             // Embarca passageiros e repete o processo até chegar à estacao destino
         } catch (MaxCapacityException e1) {
