@@ -15,6 +15,11 @@ public class Passageiro implements Runnable{
      */
     private Bilhete bilhete;
 
+    /**
+     * Comboio que o passageiro tem de entrar para ir para a sua estação de destino
+     */
+    private Comboio comboioEntrar;
+
     public Passageiro(String name, int nif, Bilhete bilhete) {
         this.name = name;
         this.nif = nif;
@@ -37,15 +42,15 @@ public class Passageiro implements Runnable{
         this.nif = nif;
     }
 
+    public void setComboioEntrar(Comboio comboioEntrar) {
+        this.comboioEntrar = comboioEntrar;
+    }
+
     public Bilhete getBilhete() {
         return this.bilhete;
     }
 
     public void run() {
-        Comboio comboioUsadoPeloPassageiro = this.bilhete.getEstacaoPartida().getComboioDestinoPassageiro(this);
-
-        if (comboioUsadoPeloPassageiro != null) {
-            this.bilhete.getEstacaoPartida().movePassageiroToComboio(this, comboioUsadoPeloPassageiro);
-        }
+        this.bilhete.getEstacaoPartida().movePassageiroToComboio(this, this.comboioEntrar);
     }
 }
