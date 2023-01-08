@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class HorarioConflictSolver implements Runnable{
     private ArrayList<Comboio> comboios;
-    private Horario horario;
 
     public HorarioConflictSolver(ArrayList<Comboio> comboios) {
         this.comboios = comboios;

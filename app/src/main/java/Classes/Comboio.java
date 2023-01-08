@@ -18,6 +18,9 @@ public class Comboio implements Runnable {
     private Estacao estacaoPartida;
     // Estacao de chegada do comboio
     private Estacao estacaoChegada;
+    // Estacao de destino do comboio. Pode ser igual à variável estacaoChegada.
+    private Estacao destinoFinal;
+
     // Horário do comboio
     private Horario horario;
     // Direção do comboio
@@ -61,6 +64,10 @@ public class Comboio implements Runnable {
 
     public Estacao getEstacaoChegada() {
         return this.estacaoChegada;
+    }
+
+    public Estacao getDestinoFinal() {
+        return this.destinoFinal;
     }
 
     public Horario getHorarioComboio() {

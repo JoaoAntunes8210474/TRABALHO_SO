@@ -2,7 +2,7 @@ package Classes;
 
 import java.time.LocalTime;
 
-public class Bilhete {
+public class Bilhete implements Comparable{
     private Horario validade;
     private Estacao partida;
     private Estacao destino;
@@ -29,5 +29,22 @@ public class Bilhete {
 
     public Estacao getEstacaoDestino() {
         return this.destino;
+    }
+
+    public Horario getHorario() {
+        return this.validade;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Estacao) {
+            Estacao tempEstacao = (Estacao) o;
+
+            if (tempEstacao == this.destino) {
+                return 0;
+            }
+        }
+        
+        return -1;
     }
 }
