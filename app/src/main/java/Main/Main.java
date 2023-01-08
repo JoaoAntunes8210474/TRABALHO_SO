@@ -23,28 +23,40 @@ public class Main {
 
     private static void moduloEmbarque(Comboio comboio) {
         ArrayList<Thread> threadsPassageiros = new ArrayList<>();
+        long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < comboio.getEstacaoPartida().getListaPassageiros().size(); i++) {
-            if ((comboio.getEstacaoPartida().getListaPassageiros().get(i).getBilhete().compareTo(comboio.getEstacaoChegada()) == 0) || (comboio.getEstacaoPartida().getListaPassageiros().get(i).getBilhete().compareTo(comboio.getDestinoFinal()) == 0)) {
+            if ((comboio.getEstacaoPartida().getListaPassageiros().get(i).getBilhete()
+                    .compareTo(comboio.getEstacaoChegada()) == 0)
+                    || (comboio.getEstacaoPartida().getListaPassageiros().get(i).getBilhete()
+                            .compareTo(comboio.getDestinoFinal()) == 0)) {
                 comboio.getEstacaoPartida().getListaPassageiros().get(i).setComboioEntrar(comboio);
                 Thread threadPassageiro = new Thread(comboio.getEstacaoPartida().getListaPassageiros().get(i));
-                threadPassageiro.start();
                 threadsPassageiros.add(threadPassageiro);
             }
         }
 
+        for (Thread thread : threadsPassageiros) {
+            thread.start();
+        }
+
         while (!threadsPassageiros.isEmpty()) {
-            Iterator<Thread> iterator = threadsPassageiros.iterator();
-
-            while (iterator.hasNext()) {
-                Thread thread = iterator.next();
-                if (!thread.isAlive()) {
-                    iterator.remove();
-                }
-            }
-
             try {
-                Thread.sleep(100);
+                Iterator<Thread> iterator = threadsPassageiros.iterator();
+
+                while (iterator.hasNext()) {
+                    Thread thread = iterator.next();
+                    if (thread.isAlive()) {
+                        long elapsedTime = System.currentTimeMillis() - startTime;
+                        if (elapsedTime >= 5000) {
+                            for (int i = 0; i < threadsPassageiros.size(); i++) {
+                                threadsPassageiros.get(i).sleep(2000);
+                            }
+                        }
+                    } else {
+                        iterator.remove();
+                    }
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -53,7 +65,7 @@ public class Main {
 
     private static void startModules() {
         Thread horarioConflictSolver = new Thread(new HorarioConflictSolver(comboios));
-        
+
         horarioConflictSolver.start();
     }
 
@@ -84,11 +96,12 @@ public class Main {
 
         startModules();
 
-        Horario moduloSimuladorTrafego = new Horario(LocalTime.of(8, 0), LocalTime.of(11,0));
+        Horario moduloSimuladorTrafego = new Horario(LocalTime.of(8, 0), LocalTime.of(11, 0));
 
         while (moduloSimuladorTrafego.getHoraPartida() != moduloSimuladorTrafego.getHoraChegada()) {
             for (int i = 0; i < comboios.size(); i++) {
-                if (comboios.get(i).getHorarioComboio().getHoraPartida().compareTo(moduloSimuladorTrafego.getHoraPartida()) == 0) {
+                if (comboios.get(i).getHorarioComboio().getHoraPartida()
+                        .compareTo(moduloSimuladorTrafego.getHoraPartida()) == 0) {
                     moduloEmbarque(comboios.get(i));
                     Thread threadComboio = new Thread(comboios.get(i));
                     threadComboio.start();
@@ -96,7 +109,6 @@ public class Main {
             }
 
         }
-
 
         // Create the threads for each train
         Thread threadComboio1 = new Thread(comboio1);
