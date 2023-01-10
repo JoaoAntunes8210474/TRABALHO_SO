@@ -1,10 +1,12 @@
 package Main;
 
+import java.io.FileWriter;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import Classes.Comboio;
+import Classes.ConflictLogs;
 import Classes.Estacao;
 import Classes.Horario;
 import Classes.HorarioConflictSolver;
@@ -48,23 +50,24 @@ public class Main {
                     Thread thread = iterator.next();
                     if (thread.isAlive()) {
                         long elapsedTime = System.currentTimeMillis() - startTime;
-                        if (elapsedTime >= 5000) {
+                        if (elapsedTime >= 1000) {
                             for (int i = 0; i < threadsPassageiros.size(); i++) {
-                                threadsPassageiros.get(i).sleep(2000);
+                                threadsPassageiros.get(i).sleep(400);
                             }
                         }
                     } else {
                         iterator.remove();
                     }
                 }
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private static void startModules() {
-        Thread horarioConflictSolver = new Thread(new HorarioConflictSolver(comboios));
+    private static void startModules(FileWriter logWriter) {
+        Thread horarioConflictSolver = new Thread(new HorarioConflictSolver(comboios, logWriter));
 
         horarioConflictSolver.start();
     }
@@ -75,11 +78,13 @@ public class Main {
         passageiros = new ArrayList<>();
         linhas = new ArrayList<>();
 
+        ConflictLogs moduloGestaoConflitoLog = new ConflictLogs();
+
         int ascii = 'A';
 
         // Create the stations
         for (int i = 0; i < 3; i++) {
-            Estacao estacao = new Estacao("Estacao " + (char) ascii);
+            Estacao estacao = new Estacao("Estacao " + (char) ascii, moduloGestaoConflitoLog.getLogWriter());
             estacoes.add(estacao);
             ascii++;
         }
@@ -91,10 +96,13 @@ public class Main {
         Linha linhaDA = new Linha(estacoes.get(6), estacoes.get(0));
 
         // Create the trains
-        Comboio comboio1 = new Comboio(estacoes.get(0), estacoes.get(1), LocalTime.of(8, 0), LocalTime.of(8, 30));
-        Comboio comboio2 = new Comboio(estacoes.get(1), estacoes.get(0), LocalTime.of(8, 0), LocalTime.of(8, 30));
+        Comboio comboio1 = new Comboio("Comboio 1", estacoes.get(0), estacoes.get(1), estacoes.get(1), LocalTime.of(8, 0), LocalTime.of(8, 30), moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(1), estacoes.get(0), estacoes.get(0), LocalTime.of(8, 0), LocalTime.of(8, 30), moduloGestaoConflitoLog.getLogWriter());
 
-        startModules();
+        comboios.add(comboio1);
+        comboios.add(comboio2);
+
+        startModules(moduloGestaoConflitoLog.getLogWriter());
 
         Horario moduloSimuladorTrafego = new Horario(LocalTime.of(8, 0), LocalTime.of(11, 0));
 
@@ -108,14 +116,13 @@ public class Main {
                 }
             }
 
+            moduloSimuladorTrafego.getHoraPartida().plusMinutes(5);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
-
-        // Create the threads for each train
-        Thread threadComboio1 = new Thread(comboio1);
-        Thread threadComboio2 = new Thread(comboio2);
-
-        // Start the threads
-        threadComboio1.start();
-        threadComboio2.start();
     }
 }

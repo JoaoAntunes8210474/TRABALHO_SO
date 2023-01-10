@@ -1,5 +1,7 @@
 package Classes;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Arrays;
 
@@ -20,19 +22,26 @@ public class Comboio implements Runnable {
     private Estacao estacaoChegada;
     // Estacao de destino do comboio. Pode ser igual à variável estacaoChegada.
     private Estacao destinoFinal;
-
+    // Registo de conflitos
+    private FileWriter logWriter;
     // Horário do comboio
     private Horario horario;
     // Direção do comboio
     private Linha troco;
+    // Nome do comboio
+    private String nomeComboio;
 
     // Construtor
-    public Comboio(Estacao estacaoPartida, Estacao estacaoChegada, LocalTime tempoPartida, LocalTime tempoChegada) {
+    public Comboio(String nomeComboio, Estacao estacaoPartida, Estacao estacaoChegada, Estacao destinoFinal, LocalTime tempoPartida,
+            LocalTime tempoChegada, FileWriter logWriter) {
+        this.nomeComboio = nomeComboio;
         this.listaPassageiros = new Passageiro[MAX_PASSAGEIROS];
         this.count = 0;
         this.horario = new Horario(tempoPartida, tempoChegada);
         this.estacaoPartida = estacaoPartida;
         this.estacaoChegada = estacaoChegada;
+        this.destinoFinal = destinoFinal;
+        this.logWriter = logWriter;
     }
 
     /**
@@ -78,6 +87,10 @@ public class Comboio implements Runnable {
         return this.troco;
     }
 
+    public String getNomeComboio() {
+        return this.nomeComboio;
+    }
+
     /**
      * Adds a passenger to the train if his ticket is valid
      * 
@@ -85,9 +98,11 @@ public class Comboio implements Runnable {
      * @throws MaxCapacityException    when the train is full
      * @throws InvalidBilheteException when the passenger doesn't have a valid
      *                                 ticket
+     * @throws IOException
      */
-    public void add(Passageiro passageiro) throws MaxCapacityException, InvalidBilheteException {
+    public void add(Passageiro passageiro) throws MaxCapacityException, InvalidBilheteException, IOException {
         if (this.count == MAX_PASSAGEIROS) {
+            this.logWriter.write("O " + passageiro.getName() + " tentou entrar no comboio quando ele ja estava cheio");
             throw new MaxCapacityException("Comboio cheio!");
         }
 
@@ -110,26 +125,43 @@ public class Comboio implements Runnable {
     @Override
     public void run() {
         try {
-            this.wait();
-            this.troco.getSemaphore().acquire();
-            System.out.println("A partir da estacao " + this.estacaoPartida.getNome());
-            this.troco.moveComboioFromDepartureStationToArrivalStation(estacaoPartida, this);
-            this.estacaoPartida = this.troco.getEstacaoArrival(estacaoPartida);
-            Thread.sleep(2000);
-            System.out.println("A chegar à estacao " + this.estacaoPartida.getNome());
-            Thread.sleep(1000);
-            System.out.println("A desembarcar passageiros...");
-            this.estacaoPartida.movePassageirosToEstacao(this);
-            this.horario.getHoraChegada().plusMinutes(30);
-            Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.getAllComboios())); 
-            verificarConflitosHorário.start();
-            // Embarca passageiros e repete o processo até chegar à estacao destino
+            if (this.estacaoPartida == this.troco.getEstacaoArrival(estacaoPartida)) {
+                this.wait();
+                this.troco.getSemaphore().acquire();
+                System.out.println("A partir da estacao " + this.estacaoPartida.getNome());
+                this.estacaoChegada.addComboio(this);
+                this.estacaoPartida = this.estacaoChegada;
+                Thread.sleep(400);
+                System.out.println("A chegar à estacao " + this.estacaoPartida.getNome());
+                Thread.sleep(200);
+                System.out.println("A desembarcar passageiros...");
+                this.estacaoPartida.movePassageirosToEstacao(this);
+                this.troco = this.estacaoChegada.getLinhas()[1];
+                this.estacaoChegada = this.troco.getEstacaoArrival(estacaoChegada);
+                this.horario.getHoraChegada().plusMinutes(30);
+                Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.getAllComboios(), this.logWriter)); 
+                verificarConflitosHorário.start();
+            } else {
+                this.wait();
+                this.troco.getSemaphore().acquire();
+                System.out.println("A partir da estacao " + this.estacaoPartida.getNome());
+                this.estacaoChegada.addComboio(this);
+                this.estacaoPartida = this.estacaoChegada;
+                Thread.sleep(400);
+                System.out.println("A chegar à estacao " + this.estacaoPartida.getNome());
+                Thread.sleep(200);
+                System.out.println("A desembarcar passageiros...");
+                this.estacaoPartida.movePassageirosToEstacao(this);
+                this.troco = this.estacaoChegada.getLinhas()[0];
+                this.estacaoChegada = this.troco.getEstacaoArrival(estacaoChegada);
+                this.horario.getHoraChegada().plusMinutes(30);
+                Thread verificarConflitosHorário = new Thread(new HorarioConflictSolver(Main.getAllComboios(), this.logWriter)); 
+                verificarConflitosHorário.start();
+            }
         } catch (MaxCapacityException e1) {
-            System.out.println("" + this.troco.getEstacaoArrival(estacaoChegada).getNome() + " está sobrelotada!!!");
-            e1.printStackTrace();
-        } catch (InterruptedException e) {
-            System.out.println("");
-            e.printStackTrace();
+            System.out.println("A " + this.estacaoPartida.getNome() + " está sobrelotada!!!");
+        } catch (InterruptedException | IOException e) {
+            
         } finally {
             this.troco.getSemaphore().release();
         }

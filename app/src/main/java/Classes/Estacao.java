@@ -1,5 +1,7 @@
 package Classes;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -21,15 +23,18 @@ public class Estacao {
     private ArrayList<Passageiro> listaPassageiros;
     // Número de passageiros na estação
     private int count;
+    // 
+    private FileWriter logWriter;
 
     /*
      * Construtor da Estação
      */
-    public Estacao(String nome) {
+    public Estacao(String nome, FileWriter logWriter) {
         this.nome = nome;
         this.linhas = new Linha[MAX_LINHAS];
         this.listaPassageiros = new ArrayList<>();
         this.count = 0;
+        this.logWriter = logWriter;
     }
 
     public int getCount() {
@@ -70,6 +75,9 @@ public class Estacao {
         } catch (InvalidBilheteException e) {
             System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
             e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
@@ -80,10 +88,11 @@ public class Estacao {
         }
     }
 
-    public void addComboio(Comboio comboio) throws MaxCapacityException {
+    public void addComboio(Comboio comboio) throws MaxCapacityException, IOException {
         if (this.listaComboios.size() < MAX_COMBOIOS) {
             this.listaComboios.add(comboio);
         } else {
+            this.logWriter.write("O " + comboio.getNomeComboio() + " tentou entrar na " + this.nome + ", no entanto, ela já estava cheia");
             throw new MaxCapacityException("A estação atingiu o limite de comboios!");
         }
 
