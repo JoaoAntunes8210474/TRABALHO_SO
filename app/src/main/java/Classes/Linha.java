@@ -1,5 +1,6 @@
 package Classes;
 
+import java.io.IOException;
 import java.util.concurrent.Semaphore;
 
 import Exceptions.MaxCapacityException;
@@ -56,7 +57,7 @@ public class Linha {
         return 0;
     }
 
-    public void moveComboioFromDepartureStationToArrivalStation(Estacao estacaoPartida, Comboio comboio) throws MaxCapacityException {
+    public void moveComboioFromDepartureStationToArrivalStation(Estacao estacaoPartida, Comboio comboio) throws MaxCapacityException, IOException {
         this.getEstacaoArrival(estacaoPartida).addComboio(comboio);
         this.estacoesAssociadas[findEstacao(estacaoPartida)].removeComboio(comboio);
     }
