@@ -27,5 +27,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'trabalho_pratico.Main.Main'
+    mainClass = 'trabalhopratico.App.Main'
 }
