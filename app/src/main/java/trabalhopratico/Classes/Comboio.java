@@ -128,22 +128,24 @@ public class Comboio implements Runnable {
     public void run() {
         try {
             this.troco.getSemaphore().acquire();
-            if (this.estacaoPartida == this.troco.getEstacaoArrival(estacaoPartida)) {
+            if (this.estacaoPartida == this.troco.getEstacoes()[1]) {
                 // this.wait();
-                System.out.println("["+ Thread.currentThread().getName() + "] - A partir da estacao " + this.estacaoPartida.getNome());
+                System.out.println("["+ Thread.currentThread().getName() + "] - A partir da estacao " + this.estacaoPartida.getNome() + " as " + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(2000);
                 this.estacaoChegada.addComboio(this);
-                this.estacaoPartida = this.estacaoChegada;
-                this.estacaoPartida.movePassageirosToEstacao(this);
-                this.troco.getSemaphore().release();
-                this.troco = this.estacaoChegada.getLinhas()[1];
-                System.out.println(this.troco.getEstacaoArrival(estacaoChegada).getNome());
-                this.estacaoChegada = this.troco.getEstacaoArrival(estacaoChegada);
                 Thread.sleep(2000);
-                System.out.println("["+ Thread.currentThread().getName() + "] - A chegar a estacao " + this.estacaoChegada.getNome());
+                System.out.println("["+ Thread.currentThread().getName() + "] - A chegar a estacao " + this.estacaoChegada.getNome() + " as " + this.getHorarioComboio().getHoraChegada().toString());
                 Thread.sleep(1000);
                 System.out.println("["+ Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                //this.estacaoChegada.movePassageirosToEstacao(this);
+                this.troco.getSemaphore().release();
+                if (this.troco.getEstacaoArrival(estacaoPartida) != this.destinoFinal) {
+                    this.estacaoPartida = this.estacaoChegada;
+                    this.troco = this.estacaoChegada.getLinhas()[1];
+                    this.estacaoChegada = this.troco.getEstacaoArrival(estacaoPartida);
+                }
                 this.horario.setHoraPartida(this.horario.getHoraPartida().plusMinutes(30));
+                this.horario.setHoraChegada(this.horario.getHoraPartida().plusMinutes(30));
                 // Thread verificarConflitosHorário = new Thread(new
                 // HorarioConflictSolver(Main.getAllComboios(), this.logWriter));
                 // verificarConflitosHorário.start();
@@ -151,19 +153,23 @@ public class Comboio implements Runnable {
                 System.out.println("["+ Thread.currentThread().getName() + "] - Terminou a viagem!");
             } else {
                 // this.wait();
-                System.out.println("["+ Thread.currentThread().getName() + "] - A partir da estacao " + this.estacaoPartida.getNome());
+                System.out.println("["+ Thread.currentThread().getName() + "] - A partir da estacao " + this.estacaoPartida.getNome() + " as " + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(2000);
                 this.estacaoChegada.addComboio(this);
                 this.estacaoPartida = this.estacaoChegada;
                 Thread.sleep(2000);
-                System.out.println("["+ Thread.currentThread().getName() + "] - A chegar a estacao " + this.estacaoPartida.getNome());
+                System.out.println("["+ Thread.currentThread().getName() + "] - A chegar a estacao " + this.estacaoChegada.getNome() + " as " + this.getHorarioComboio().getHoraChegada().toString());
                 Thread.sleep(1000);
                 System.out.println("["+ Thread.currentThread().getName() + "] - A desembarcar passageiros...");
-                this.estacaoPartida.movePassageirosToEstacao(this);
+                //this.estacaoPartida.movePassageirosToEstacao(this);
                 this.troco.getSemaphore().release();
-                this.troco = this.estacaoChegada.getLinhas()[0];
-                this.estacaoChegada = this.troco.getEstacaoArrival(estacaoChegada);
+                if (this.troco.getEstacaoArrival(estacaoPartida) != this.destinoFinal) {
+                    this.estacaoPartida = this.estacaoChegada;
+                    this.troco = this.estacaoChegada.getLinhas()[0];
+                    this.estacaoChegada = this.troco.getEstacaoArrival(estacaoChegada);
+                }
                 this.horario.setHoraPartida(this.horario.getHoraPartida().plusMinutes(30));
+                this.horario.setHoraChegada(this.horario.getHoraPartida().plusMinutes(30));
                 // Thread verificarConflitosHorário = new Thread(new
                 // HorarioConflictSolver(Main.getAllComboios(), this.logWriter));
                 // verificarConflitosHorário.start();
