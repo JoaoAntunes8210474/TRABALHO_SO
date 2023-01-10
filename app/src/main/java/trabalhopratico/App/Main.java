@@ -108,10 +108,10 @@ public class Main {
         }
 
         // Create the trains
-        //Comboio comboio1 = new Comboio("Comboio 1", estacoes.get(0), estacoes.get(1), estacoes.get(3),
-        //        LocalTime.of(8, 0), LocalTime.of(8, 30), linhaAB, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio1 = new Comboio("Comboio 1", estacoes.get(0), estacoes.get(1), estacoes.get(3),
+                LocalTime.of(8, 0), LocalTime.of(8, 30), linhaAB, moduloGestaoConflitoLog.getLogWriter());
         Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(2), estacoes.get(1), estacoes.get(0),
-                LocalTime.of(8, 0), LocalTime.of(8, 30), linhaBC, moduloGestaoConflitoLog.getLogWriter());
+                LocalTime.of(8, 15), LocalTime.of(8, 45), linhaBC, moduloGestaoConflitoLog.getLogWriter());
 
         // Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(1), estacoes.get(0),
         // estacoes.get(0), LocalTime.of(8, 0), LocalTime.of(8, 30),
@@ -145,28 +145,28 @@ public class Main {
          * 
          * }
          */
-        //Thread threadComboio1 = new Thread(comboio1);
+        Thread threadComboio1 = new Thread(comboio1);
         Thread threadComboio2 = new Thread(comboio2);
-        //threadComboio1.setName(comboio1.getNomeComboio());
+        threadComboio1.setName(comboio1.getNomeComboio());
         threadComboio2.setName(comboio2.getNomeComboio());
-        //threadComboio1.start();
+        threadComboio1.start();
         threadComboio2.start();
         try {
-            //threadComboio1.join();
+            threadComboio1.join();
             threadComboio2.join();
         } catch (Exception ex) {
         }
         //System.out.println(comboio1.getNomeComboio() + "\n" + comboio1.getEstacaoPartida().getNome() + "\n"
         //        + comboio1.getEstacaoChegada().getNome() + "\n"
         //        + comboio1.getHorarioComboio().getHoraPartida().toString());
-        //threadComboio1 = new Thread(comboio1);
+        threadComboio1 = new Thread(comboio1);
         threadComboio2 = new Thread(comboio2);
-        //threadComboio1.setName(comboio1.getNomeComboio());
+        threadComboio1.setName(comboio1.getNomeComboio());
         threadComboio2.setName(comboio2.getNomeComboio());
-        //threadComboio1.start();
+        threadComboio1.start();
         threadComboio2.start();
         try {
-        //    threadComboio1.join();
+            threadComboio1.join();
             threadComboio2.join();
         } catch (Exception ex) {
         }

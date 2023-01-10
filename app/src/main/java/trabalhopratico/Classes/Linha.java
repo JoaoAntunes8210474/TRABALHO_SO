@@ -1,6 +1,7 @@
 package trabalhopratico.Classes;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.Semaphore;
 
 import trabalhopratico.Exceptions.MaxCapacityException;
@@ -33,6 +34,10 @@ public class Linha {
 
     public Estacao getEstacaoArrival(Estacao estacao) {
         return this.estacoesAssociadas[findEstacaoArrival(estacao)];
+    }
+
+    public Estacao[] getEstacoes() {
+        return Arrays.copyOf(this.estacoesAssociadas, 2);
     }
 
     public Semaphore getSemaphore() {
