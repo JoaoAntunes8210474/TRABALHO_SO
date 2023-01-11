@@ -29,7 +29,6 @@ public class Main {
 
     private static void moduloEmbarque(Comboio comboio) {
         ArrayList<Thread> threadsPassageiros = new ArrayList<>();
-        long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < comboio.getEstacaoPartida().getListaPassageiros().size(); i++) {
             if ((comboio.getEstacaoPartida().getListaPassageiros().get(i).getBilhete()
@@ -49,15 +48,13 @@ public class Main {
         while (!threadsPassageiros.isEmpty()) {
             try {
                 Iterator<Thread> iterator = threadsPassageiros.iterator();
+                Thread.sleep(1000);
 
                 while (iterator.hasNext()) {
                     Thread thread = iterator.next();
                     if (thread.isAlive()) {
-                        long elapsedTime = System.currentTimeMillis() - startTime;
-                        if (elapsedTime >= 1000) {
-                            for (int i = 0; i < threadsPassageiros.size(); i++) {
-                                threadsPassageiros.get(i).sleep(400);
-                            }
+                        for (int i = 0; i < threadsPassageiros.size(); i++) {
+                            threadsPassageiros.get(i).sleep(400);
                         }
                     } else {
                         iterator.remove();
@@ -116,10 +113,8 @@ public class Main {
         try {
             estacoes.get(0).addComboio(comboio1);
         } catch (MaxCapacityException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
