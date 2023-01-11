@@ -91,7 +91,7 @@ public class Estacao {
     }
 
     public void movePassageirosToEstacao(Comboio comboio) {
-        for (int i=0; i<comboio.getListaPassageiros().length; i++) {
+        for (int i=0; i<comboio.getCount(); i++) {
             this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
         }
         this.listaComboios.get(this.listaComboios.indexOf(comboio)).removeAll();
