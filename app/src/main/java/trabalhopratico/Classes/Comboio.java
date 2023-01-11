@@ -118,6 +118,7 @@ public class Comboio implements Runnable {
 
     public void removeAll() {
         Arrays.fill(this.listaPassageiros, null);
+        this.count=0;
     }
 
     public Passageiro get(int integer) {
@@ -153,6 +154,7 @@ public class Comboio implements Runnable {
                 System.out.println("["+ Thread.currentThread().getName() + "] - Terminou a viagem!");
             } else {
                 // this.wait();
+                System.out.println("Numero de passageiros: "+this.getCount());  // TEST
                 System.out.println("["+ Thread.currentThread().getName() + "] - A partir da estacao " + this.estacaoPartida.getNome() + " as " + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(2000);
                 this.estacaoChegada.addComboio(this);
@@ -161,7 +163,7 @@ public class Comboio implements Runnable {
                 System.out.println("["+ Thread.currentThread().getName() + "] - A chegar a estacao " + this.estacaoChegada.getNome() + " as " + this.getHorarioComboio().getHoraChegada().toString());
                 Thread.sleep(1000);
                 System.out.println("["+ Thread.currentThread().getName() + "] - A desembarcar passageiros...");
-                //this.estacaoPartida.movePassageirosToEstacao(this);
+                this.estacaoPartida.movePassageirosToEstacao(this);
                 this.troco.getSemaphore().release();
                 if (this.troco.getEstacaoArrival(estacaoPartida) != this.destinoFinal) {
                     this.estacaoPartida = this.estacaoChegada;
