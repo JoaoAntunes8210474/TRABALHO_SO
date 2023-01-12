@@ -85,16 +85,19 @@ public class Estacao {
             System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     public void movePassageirosToEstacao(Comboio comboio) {
-        for (int i=0; i<comboio.getListaPassageiros().length; i++) {
-            this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
+        for (int i = 0; i < comboio.getCount(); i++) {
+            System.out.println(comboio.getListaPassageiros()[i].getName());
+            if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino().equals(comboio.getEstacaoChegada())) {
+                this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
+                this.listaComboios.get(this.listaComboios.indexOf(comboio)).remove(i);
+            }
         }
-        this.listaComboios.get(this.listaComboios.indexOf(comboio)).removeAll();
+
     }
 
     public void addComboio(Comboio comboio) throws MaxCapacityException, IOException {
