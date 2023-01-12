@@ -90,9 +90,9 @@ public class Estacao {
     }
 
     public void movePassageirosToEstacao(Comboio comboio) {
-        for (int i=0; i<comboio.getCount(); i++) {
+        for (int i = 0; i < comboio.getCount(); i++) {
             System.out.println(comboio.getListaPassageiros()[i].getName());
-            if (comboio.getListaPassageiros()[i].getBilhete().compareTo(comboio.getDestinoFinal()) == 0 || comboio.getListaPassageiros()[i].getBilhete().compareTo(comboio.getEstacaoChegada()) == 0) {
+            if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino().equals(comboio.getEstacaoChegada())) {
                 this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
                 this.listaComboios.get(this.listaComboios.indexOf(comboio)).remove(i);
             }

@@ -15,7 +15,7 @@ public class Bilhete implements Comparable{
 
     public boolean isValid(Horario horarioComboio, Estacao estacaoPartida, Estacao estacaoChegada, Estacao destinoFinal) {
         if (this.validade.getHoraPartida().compareTo(horarioComboio.getHoraPartida()) <= 0 && this.validade.getHoraChegada().compareTo(horarioComboio.getHoraPartida()) >= 0) {
-            if (this.partida == estacaoPartida && this.destino == estacaoChegada || this.destino == destinoFinal) {
+            if (this.partida.equals(estacaoPartida) && (this.destino.equals(estacaoChegada) || this.destino.equals(destinoFinal))) {
                 return true;
             }
         }
@@ -33,18 +33,5 @@ public class Bilhete implements Comparable{
 
     public Horario getHorario() {
         return this.validade;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        if (o instanceof Estacao) {
-            Estacao tempEstacao = (Estacao) o;
-
-            if (tempEstacao == this.destino) {
-                return 0;
-            }
-        }
-        
-        return -1;
     }
 }

@@ -154,14 +154,14 @@ public class Comboio implements Runnable {
                         + this.getHorarioComboio().getHoraChegada().toString());
                 Thread.sleep(1000);
                 System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
-                // this.estacaoChegada.movePassageirosToEstacao(this);
+                this.estacaoChegada.movePassageirosToEstacao(this);
                 this.troco.getSemaphore().release();
                 if (this.troco.getEstacaoArrival(estacaoPartida) != this.destinoFinal) {
                     this.estacaoPartida = this.estacaoChegada;
                     this.troco = this.estacaoChegada.getLinhas()[1];
                     this.estacaoChegada = this.troco.getEstacaoArrival(estacaoPartida);
                 } else {
-                    this.acabouViagem=true;
+                    this.acabouViagem = true;
                 }
                 this.horario.setHoraPartida(this.horario.getHoraPartida().plusMinutes(30));
                 this.horario.setHoraChegada(this.horario.getHoraPartida().plusMinutes(30));
@@ -183,14 +183,14 @@ public class Comboio implements Runnable {
                         + this.getHorarioComboio().getHoraChegada().toString());
                 Thread.sleep(1000);
                 System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
-                this.estacaoPartida.movePassageirosToEstacao(this);
+                this.estacaoChegada.movePassageirosToEstacao(this);
                 this.troco.getSemaphore().release();
                 if (this.troco.getEstacaoArrival(estacaoPartida) != this.destinoFinal) {
                     this.estacaoPartida = this.estacaoChegada;
                     this.troco = this.estacaoChegada.getLinhas()[0];
                     this.estacaoChegada = this.troco.getEstacaoArrival(estacaoChegada);
                 } else {
-                    this.acabouViagem=true;
+                    this.acabouViagem = true;
                 }
                 this.horario.setHoraPartida(this.horario.getHoraPartida().plusMinutes(30));
                 this.horario.setHoraChegada(this.horario.getHoraPartida().plusMinutes(30));
