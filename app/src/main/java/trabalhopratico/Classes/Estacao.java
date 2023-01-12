@@ -91,11 +91,13 @@ public class Estacao {
 
     public void movePassageirosToEstacao(Comboio comboio) {
         for (int i=0; i<comboio.getCount(); i++) {
-            if (comboio.getListaPassageiros()[i].getBilhete().compareTo(this) == 0) {
+            System.out.println(comboio.getListaPassageiros()[i].getName());
+            if (comboio.getListaPassageiros()[i].getBilhete().compareTo(comboio.getDestinoFinal()) == 0 || comboio.getListaPassageiros()[i].getBilhete().compareTo(comboio.getEstacaoChegada()) == 0) {
                 this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
+                this.listaComboios.get(this.listaComboios.indexOf(comboio)).remove(i);
             }
         }
-        this.listaComboios.get(this.listaComboios.indexOf(comboio)).removeAll();
+
     }
 
     public void addComboio(Comboio comboio) throws MaxCapacityException, IOException {

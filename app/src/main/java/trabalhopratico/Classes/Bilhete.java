@@ -13,9 +13,9 @@ public class Bilhete implements Comparable{
         this.destino = destino;
     }
 
-    public boolean isValid(Horario horarioComboio, Estacao estacaoPartida, Estacao estacaoDestino) {
+    public boolean isValid(Horario horarioComboio, Estacao estacaoPartida, Estacao estacaoChegada, Estacao destinoFinal) {
         if (this.validade.getHoraPartida().compareTo(horarioComboio.getHoraPartida()) <= 0 && this.validade.getHoraChegada().compareTo(horarioComboio.getHoraPartida()) >= 0) {
-            if (this.partida == estacaoPartida && this.destino == estacaoDestino) {
+            if (this.partida == estacaoPartida && this.destino == estacaoChegada || this.destino == destinoFinal) {
                 return true;
             }
         }
