@@ -2,7 +2,7 @@ package trabalhopratico.Classes;
 
 import java.time.LocalTime;
 
-public class Bilhete implements Comparable{
+public class Bilhete {
     private Horario validade;
     private Estacao partida;
     private Estacao destino;
