@@ -74,12 +74,16 @@ public class Estacao {
         this.listaPassageiros.add(passageiro);
     }
     // o ideal era termos um run que faz isto
-    public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio) {
+    public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio){
         try {
             this.listaComboios.get(this.listaComboios.indexOf(comboio)).add(passageiro);
             this.listaPassageiros.remove(passageiro);
         } catch (MaxCapacityException e) {
-            System.out.println("O passageiro não pode entrar no comboio porque está cheio.");
+            try {
+                this.logWriter.write("[Comboio Sobrelotado Conflict Solver] - O " + passageiro.getName() + " tentou entrar no " + comboio.getNomeComboio() + ", no entanto, ele já estava cheio.\n");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }     
             e.printStackTrace();
         } catch (InvalidBilheteException e) {
             System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
@@ -90,21 +94,27 @@ public class Estacao {
     }
 
     public void movePassageirosToEstacao(Comboio comboio) {
+        /*try {
+            this.semaphore.acquire();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
         for (int i = 0; i < comboio.getCount(); i++) {
             System.out.println(comboio.getListaPassageiros()[i].getName());
             if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino().equals(comboio.getEstacaoChegada())) {
                 this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
                 this.listaComboios.get(this.listaComboios.indexOf(comboio)).remove(i);
+                System.out.println("Tamanho da lista de comboios: "+this.listaComboios.size());
             }
         }
-
+        //this.semaphore.release();
     }
 
     public void addComboio(Comboio comboio) throws MaxCapacityException, IOException {
         if (this.listaComboios.size() < MAX_COMBOIOS) {
             this.listaComboios.add(comboio);
         } else {
-            this.logWriter.write("O " + comboio.getNomeComboio() + " tentou entrar na " + this.nome + ", no entanto, ela já estava cheia");
+            this.logWriter.write("[Estação Sobrelotada Conflict Solver] - O " + comboio.getNomeComboio() + " tentou entrar na " + this.nome + ", no entanto, ela já estava cheia");
             throw new MaxCapacityException("A estação atingiu o limite de comboios!");
         }
 
