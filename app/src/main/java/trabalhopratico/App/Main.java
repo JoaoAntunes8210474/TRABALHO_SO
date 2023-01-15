@@ -4,7 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 
 import trabalhopratico.Classes.Bilhete;
@@ -29,22 +31,38 @@ public class Main {
     }
 
     private static void moduloEmbarque(Comboio comboio) {
-        ArrayList<Thread> threadsPassageiros = new ArrayList<>();
-
-        for (int i = 0; i < comboio.getEstacaoPartida().getListaPassageiros().size(); i++) {
-            for (int j = 0; j < comboio.getEstacaoParagem().size(); j++) {
-                if ((comboio.getEstacaoPartida().getListaPassageiros().get(i).getBilhete().getEstacaoDestino()
-                        .equals(comboio.getEstacaoParagem().get(j)))
-                        || (comboio.getEstacaoPartida().getListaPassageiros().get(i).getBilhete().getEstacaoDestino()
+        ArrayList<Thread> tempThreadsPassageiros = new ArrayList<>();
+        for (int i = 0; i < comboio.getEstacaoParagem().size(); i++) {
+            for (int j = 0; j < comboio.getEstacaoPartida().getListaPassageiros().size(); j++) {
+                if ((comboio.getEstacaoPartida().getListaPassageiros().get(j).getBilhete().getEstacaoDestino()
+                        .equals(comboio.getEstacaoParagem().get(i)))
+                        || (comboio.getEstacaoPartida().getListaPassageiros().get(j).getBilhete().getEstacaoDestino()
                                 .equals(comboio.getDestinoFinal()))) {
-                    comboio.getEstacaoPartida().getListaPassageiros().get(i).setComboioEntrar(comboio);
-                    Thread threadPassageiro = new Thread(comboio.getEstacaoPartida().getListaPassageiros().get(i));
-                    threadPassageiro.setName(comboio.getEstacaoPartida().getListaPassageiros().get(i).getName());
-                    threadsPassageiros.add(threadPassageiro);
+                    comboio.getEstacaoPartida().getListaPassageiros().get(j).setComboioEntrar(comboio);
+
+                    Thread threadPassageiro = new Thread(comboio.getEstacaoPartida().getListaPassageiros().get(j));
+                    threadPassageiro.setName(comboio.getEstacaoPartida().getListaPassageiros().get(j).getName());
+                    tempThreadsPassageiros.add(threadPassageiro);
                 }
             }
         }
 
+        // Create a new ArrayList
+        ArrayList<Thread> threadsPassageiros = new ArrayList<>();
+
+        Map<Long, Thread> map = new HashMap<>();
+
+        for (Thread thread : tempThreadsPassageiros) {
+            Long id = thread.getId();
+            if (!map.containsKey(id)) {
+                // id is not a duplicate, so add the thread to the map
+                map.put(id, thread);
+            }
+        }
+
+        threadsPassageiros = new ArrayList<>(map.values());
+        System.out.println("Map Size: " + map.size());
+        System.out.println("Sout: " + threadsPassageiros.size());   //
         for (Thread thread : threadsPassageiros) {
             thread.start();
         }

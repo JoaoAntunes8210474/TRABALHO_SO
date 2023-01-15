@@ -44,6 +44,7 @@ public class Comboio implements Runnable {
         this.count = 0;
         this.horario = new Horario(tempoPartida, tempoPartida.plusMinutes(30));
         this.estacaoPartida = estacaoPartida;
+        this.estacoesParagem = new ArrayList<>();
         this.destinoFinal = destinoFinal;
         this.troco = troco;
         this.logWriter = logWriter;
@@ -151,15 +152,15 @@ public class Comboio implements Runnable {
     }
 
     public void addRoute() {
-        Comboio tempComboio = new Comboio(this.nomeComboio, this.estacaoPartida, this.destinoFinal, this.horario.getHoraPartida(),this.troco, this.logWriter);
+        Comboio tempComboio = new Comboio(this.nomeComboio, this.estacaoPartida, this.destinoFinal,
+                this.horario.getHoraPartida(), this.troco, this.logWriter);
 
         while (!tempComboio.acabouViagem) {
-            int i = 0;
-            if (tempComboio.estacaoPartida == tempComboio.troco.getEstacoes()[1]) { 
+            if (tempComboio.estacaoPartida == tempComboio.troco.getEstacoes()[1]) {
                 if (tempComboio.troco.getEstacaoArrival(tempComboio.estacaoPartida) != tempComboio.destinoFinal) {
                     tempComboio.estacaoPartida = tempComboio.troco.getEstacaoArrival(estacaoPartida);
                     tempComboio.getEstacaoParagem().add(tempComboio.estacaoPartida);
-                    tempComboio.troco = tempComboio.estacoesParagem.get(i++).getLinhas()[1];
+                    tempComboio.troco = tempComboio.estacaoPartida.getLinhas()[1];
                 } else {
                     tempComboio.acabouViagem = true;
                 }
@@ -167,7 +168,7 @@ public class Comboio implements Runnable {
                 if (tempComboio.troco.getEstacaoArrival(tempComboio.estacaoPartida) != tempComboio.destinoFinal) {
                     tempComboio.estacaoPartida = tempComboio.troco.getEstacaoArrival(tempComboio.estacaoPartida);
                     tempComboio.getEstacaoParagem().add(tempComboio.estacaoPartida);
-                    tempComboio.troco = tempComboio.estacoesParagem.get(i++).getLinhas()[0];
+                    tempComboio.troco = tempComboio.estacaoPartida.getLinhas()[0];
                 } else {
                     tempComboio.acabouViagem = true;
                 }
@@ -175,7 +176,6 @@ public class Comboio implements Runnable {
         }
 
         this.estacoesParagem.addAll(tempComboio.estacoesParagem);
-
     }
 
     @Override
@@ -187,19 +187,36 @@ public class Comboio implements Runnable {
                         + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(100);
                 this.estacaoPartida.removeComboio(this);
-                if (this.estacoesParagem.get(0).getAddComboio()) {
-                    this.estacoesParagem.get(0).addComboio(this);
-                    Thread.sleep(100);
-                    System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
-                            + this.estacoesParagem.get(0).getNome() + " as "
-                            + this.getHorarioComboio().getHoraChegada().toString());
-                    Thread.sleep(100);
-                    System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                if (this.getEstacaoParagem().size() != 0) {
+                    if (this.estacoesParagem.get(0).getAddComboio()) {
+                        this.estacoesParagem.get(0).addComboio(this);
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
+                                + this.estacoesParagem.get(0).getNome() + " as "
+                                + this.getHorarioComboio().getHoraChegada().toString());
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                    } else {
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
+                    }
+                    if (this.count != 0) {
+                        this.estacoesParagem.get(0).movePassageirosToEstacao(this);
+                    }
                 } else {
-                    System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
-                }
-                if (this.count != 0) {
-                    this.estacoesParagem.get(0).movePassageirosToEstacao(this);
+                    if (this.destinoFinal.getAddComboio()) {
+                        this.destinoFinal.addComboio(this);
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
+                                + this.destinoFinal.getNome() + " as "
+                                + this.getHorarioComboio().getHoraChegada().toString());
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                    } else {
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
+                    }
+                    if (this.count != 0) {
+                        this.destinoFinal.movePassageirosToEstacao(this);
+                    }
                 }
                 if (this.troco.getEstacaoArrival(estacaoPartida) != this.destinoFinal) {
                     this.estacaoPartida = this.estacoesParagem.get(0);
@@ -207,7 +224,7 @@ public class Comboio implements Runnable {
                     this.estacoesParagem.remove(0);
                 } else {
                     this.acabouViagem = true;
-                    this.estacoesParagem.get(0).removeComboio(this); // O comboio chegou ao fim e agora é removido
+                    this.destinoFinal.removeComboio(this); // O comboio chegou ao fim e agora é removido
                 }
             } else {
                 // System.out.println("Numero de passageiros: " + this.getCount()); // TEST
@@ -216,27 +233,46 @@ public class Comboio implements Runnable {
                         + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(100);
                 this.estacaoPartida.removeComboio(this);
-                if (this.estacoesParagem.get(0).getAddComboio()) {
-                    this.estacoesParagem.get(0).addComboio(this);
-                    Thread.sleep(100);
-                    System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
-                            + this.estacoesParagem.get(0).getNome() + " as "
-                            + this.getHorarioComboio().getHoraChegada().toString());
-                    Thread.sleep(100);
-                    System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                
+                if (this.getEstacaoParagem().size() != 0) {
+                    if (this.estacoesParagem.get(0).getAddComboio()) {
+                        this.estacoesParagem.get(0).addComboio(this);
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
+                                + this.estacoesParagem.get(0).getNome() + " as "
+                                + this.getHorarioComboio().getHoraChegada().toString());
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                    } else {
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
+                    }
+                    if (this.count != 0) {
+                        this.estacoesParagem.get(0).movePassageirosToEstacao(this);
+                    }
                 } else {
-                    System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
+                    if (this.destinoFinal.getAddComboio()) {
+                        this.destinoFinal.addComboio(this);
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
+                                + this.destinoFinal.getNome() + " as "
+                                + this.getHorarioComboio().getHoraChegada().toString());
+                        Thread.sleep(100);
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                    } else {
+                        System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
+                    }
+                    if (this.count != 0) {
+                        this.destinoFinal.movePassageirosToEstacao(this);
+                    }
                 }
-                if (this.count != 0) {
-                    this.estacoesParagem.get(0).movePassageirosToEstacao(this);
-                }
+
                 if (this.troco.getEstacaoArrival(this.estacaoPartida) != this.destinoFinal) {
                     this.estacaoPartida = this.estacoesParagem.get(0);
                     this.troco = this.estacoesParagem.get(0).getLinhas()[0];
                     this.estacoesParagem.remove(0);
                 } else {
                     this.acabouViagem = true;
-                    this.estacoesParagem.get(0).removeComboio(this);
+                    this.destinoFinal.removeComboio(this);
                 }
             }
             this.horario.setHoraPartida(this.horario.getHoraPartida().plusMinutes(30));
