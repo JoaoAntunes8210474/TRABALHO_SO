@@ -6,69 +6,90 @@
 [Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ` tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro a tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro h tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ] tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro K tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro R tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro c tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro O tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ] tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro g tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro L tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro T tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro i tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Y tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro _ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro S tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Q tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro J tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro d tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro M tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro j tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro N tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro e tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro J tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro U tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro V tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Z tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro \ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ` tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro b tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro M tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Y tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro k tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro W tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ^ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro P tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro a tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro O tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro c tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro d tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro H tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro g tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro V tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro I tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Q tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro m tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ^ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro G tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro _ tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro M tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro P tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro e tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro a tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro N tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro f tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro \ tentou entrar no Comboio 6, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro J tentou entrar no Comboio 6, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '304466061' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '550963451' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '339956204' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '140934985' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '829835974' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '581275924' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '625148914' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '867640834' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '429453346' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '958997481' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '981613762' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '518843052' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '919946391' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '671556293' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '111847139' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '298947608' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '734557570' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '337991278' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '419412531' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '242158371' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '358278036' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '185689923' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '819207195' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '975988223' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '695604261' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '686251839' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '855201954' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '130653591' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '703211829' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '918929568' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '672807039' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '489608136' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '581393358' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '659618362' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '922271251' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '994847265' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '575913404' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '727515564' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '192229892' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '415122636' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '514715614' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '761912092' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '963764614' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '783623501' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '537192185' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '172843952' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '226635388' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '951365834' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '635350433' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '341626403' tentou entrar no 'Comboio 1' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '301663887' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '941238318' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '203096684' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '171519746' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '537195583' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '965583729' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '224813018' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '584961696' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '565579208' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '727180968' tentou entrar no 'Comboio 3' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '950704588' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '106467761' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '872347495' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '354504266' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '882850545' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '668876994' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '202075326' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '520195899' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '413500825' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '624225866' tentou entrar no 'Comboio 6' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '572180333' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '362176481' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '955675777' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '684839209' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '892621645' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '297726406' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '758751645' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '986470391' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '539202362' tentou entrar no 'Comboio 12' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '683958008' tentou entrar no 'Comboio 12' mas estava cheio.
 [Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 12 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 10 e o seu horário foi alterado.
@@ -76,26 +97,40 @@
 [Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 10 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
-[Estação Sobrelotada Conflict Solver] - O Comboio 4 tentou entrar na Estacao B, no entanto, ela já estava cheia.
-[Estação Sobrelotada Conflict Solver] - O Comboio 7 tentou entrar na Estacao D, no entanto, ela já estava cheia.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro M tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro W tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro U tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro H tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Z tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro G tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro T tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro e tentou entrar no Comboio 8, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro f tentou entrar no Comboio 8, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '983403695' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '833738306' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '799791000' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '851427851' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '542667503' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '218760509' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '283286491' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '491777463' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '802139252' tentou entrar no 'Comboio 4' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '491249530' tentou entrar no 'Comboio 4' mas estava cheio.
+[Estação Sobrelotada Conflict Solver] - 'Comboio 4' tentou entrar na 'Estacao B' mas estava cheia.
+[Estação Sobrelotada Conflict Solver] - 'Comboio 7' tentou entrar na 'Estacao D' mas estava cheia.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '338710299' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '320596091' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '145336455' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '457609398' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '432502518' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '383584426' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '180050375' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '996862358' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '593856280' tentou entrar no 'Comboio 8' mas estava cheio.
+[Comboio Sobrelotado Conflict Solver] - Passageiro '603031886' tentou entrar no 'Comboio 8' mas estava cheio.
 [Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
-[Estação Sobrelotada Conflict Solver] - O Comboio 10 tentou entrar na Estacao C, no entanto, ela já estava cheia.
+[Estação Sobrelotada Conflict Solver] - 'Comboio 10' tentou entrar na 'Estacao C' mas estava cheia.
 [Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 12 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 12 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 12 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 12 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.

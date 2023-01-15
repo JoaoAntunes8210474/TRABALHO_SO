@@ -145,12 +145,13 @@ public class Estacao {
             this.listaPassageiros.remove(passageiro);
         } catch (MaxCapacityException e) {
             try {
-                this.logWriter.write("[Comboio Sobrelotado Conflict Solver] - O " + passageiro.getName() 
-                + " tentou entrar no " + comboio.getNomeComboio() + ", no entanto, ele já estava cheio.\n");
+                this.logWriter.write("[Comboio Sobrelotado Conflict Solver] - Passageiro \'" + passageiro.getNif()
+                + "\' tentou entrar no \'" + comboio.getNomeComboio() + "\' mas estava cheio.\n");
             } catch (IOException e1) {
             }
         } catch (InvalidBilheteException e) {
-            System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
+            System.out.println("[Bilhete Inválido] - Passageiro "+ passageiro.getNif() +" não pode entrar no \'" 
+            + comboio.getNomeComboio() + "\' porque o seu bilhete é inválido.");
         } catch (IOException | InterruptedException e) {
         } 
     }
@@ -194,9 +195,9 @@ public class Estacao {
             this.listaComboios.add(comboio);
         } else {
             this.addComboio = false;
-            this.logWriter.write("[Estação Sobrelotada Conflict Solver] - O " + comboio.getNomeComboio()
-                    + " tentou entrar na " + this.nome + ", no entanto, ela já estava cheia.\n");
-            throw new MaxCapacityException("A estação atingiu o limite de comboios!");
+            this.logWriter.write("[Estação Sobrelotada Conflict Solver] - \'" + comboio.getNomeComboio() + 
+            "\' tentou entrar na \'" + this.nome + "\' mas estava cheia.\n");
+            throw new MaxCapacityException("[" + this.getNome() + "] - Atingiu o limite de comboios!");
         }
 
     }
@@ -218,7 +219,7 @@ public class Estacao {
      */
     public void addLinhas(Linha linha) throws MaxCapacityException {
         if (this.count == MAX_LINHAS) {
-            throw new MaxCapacityException("A estação atingiu o limite de linhas!");
+            throw new MaxCapacityException("[" + this.getNome() + "] - Atingiu o limite de linhas!");
         }
 
         this.linhas[this.count++] = linha;
