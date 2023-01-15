@@ -1,16 +1,22 @@
 package trabalhopratico.Classes;
 
 public class Passageiro implements Runnable {
-    // nome do passageiro
+    // Nome do passageiro
     private String name;
-    // nif do passageiro
+    // Nif do passageiro
     private int nif;
     // Bilhete do passageiro
     private Bilhete bilhete;
     // Comboio que o passageiro tem de entrar para ir para a sua estação de destino
     private Comboio comboioEntrar;
 
-    // Construtor
+    /**
+     * Construtor de passageiro
+     * 
+     * @param name nome do passageiro
+     * @param nif nif do passageiro
+     * @param bilhete bilhete do passageiro
+     */
     public Passageiro(String name, int nif, Bilhete bilhete) {
         this.name = name;
         this.nif = nif;
@@ -18,6 +24,7 @@ public class Passageiro implements Runnable {
     }
 
     /**
+     * Retorna o nome do passageiro
      * 
      * @return nome do passageiro
      */
@@ -26,14 +33,15 @@ public class Passageiro implements Runnable {
     }
 
     /**
-     * define o nome do passageiro
-     * @param name - recebe uma string como parâmetro
+     * Altera o nome do passageiro para aquele que é enviado por referência
+     * @param name - novo nome do passageiro
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
+     * Retorna o nif do passageiro
      * 
      * @return nif do passageiro
      */
@@ -42,22 +50,23 @@ public class Passageiro implements Runnable {
     }
 
     /**
-     * define o nif do passageiro
-     * @param nif - recebe um inteiro como parâmetro
+     * Altera o nif do passageiro para aquele que é enviado por referência
+     * @param nif - novo nif do passageiro
      */
     public void setNif(int nif) {
         this.nif = nif;
     }
 
     /**
-     * define o comboio a entrar
-     * @param comboioEntrar - recebe um comboio como parâmetro
+     * Altera o comboio a entrar do passageiro para aquele que é recebido por referência
+     * @param comboioEntrar - novo comboio a entrar do passageiro
      */
     public void setComboioEntrar(Comboio comboioEntrar) {
         this.comboioEntrar = comboioEntrar;
     }
 
     /**
+     * Retorna o bilhete do passageiro
      * 
      * @return bilhete do passageiro
      */
@@ -66,7 +75,11 @@ public class Passageiro implements Runnable {
     }
 
     /**
-     * 
+     * Comportamento normal do passageiro.
+     * O semáforo da estação fica bloqueado quando um passageiro tenta entrar no comboio
+     * Ele tenta entrar no comboio guardado na variável "comboioEntrar"
+     * Após entrar ou não, se o comboio estiver na capacidade cheia
+     * O semáforo da estação é desbloqueado.
      */
     @Override
     public void run() {

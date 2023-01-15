@@ -10,7 +10,12 @@ public class HorarioConflictSolver implements Runnable {
     // Escrever no ficheiro
     private FileWriter logWriter;
 
-    // Construtor
+    /**
+     * Construtor do HorarioConflictSolver
+     * 
+     * @param comboios comboios utilizados pelo módulo
+     * @param logWriter escritor de ficheiro
+     */
     public HorarioConflictSolver(ArrayList<Comboio> comboios, FileWriter logWriter) {
         this.comboios = comboios;
         this.logWriter = logWriter;
@@ -20,13 +25,13 @@ public class HorarioConflictSolver implements Runnable {
      * Verifica a existência de conflitos de horário, como acederem à mesma linha ao
      * mesmo tempo
      * 
-     * @return true or false
+     * @return "TRUE" or "FALSE"
      */
     private boolean hasConflicts() {
         for (int i = 0; i < this.comboios.size(); i++) {
             for (int j = i + 1; j < this.comboios.size(); j++) {
-                if ((this.comboios.get(i).getDirecaoComboio().getSentido()
-                        .equals(this.comboios.get(j).getDirecaoComboio().getSentido()))
+                if ((this.comboios.get(i).getTrocoComboio().getSentido()
+                        .equals(this.comboios.get(j).getTrocoComboio().getSentido()))
                         && (this.comboios.get(i).getHorarioComboio().getHoraPartida()
                                 .equals(this.comboios.get(j).getHorarioComboio().getHoraPartida()))) {
                     if (!this.comboios.get(i).getHasFinished()) {
@@ -40,15 +45,16 @@ public class HorarioConflictSolver implements Runnable {
     }
 
     /**
-     * 
+     * Se houver conflitos, o módulo de resolver conflitos resolve-os ao atrasar o horário de um dos comboios a que identificou os conflitos
+     * A escolha de qual dos comboios a alterar o horário depende da quantidade de vezes que o horário do comboio já foi atrasado
      */
     @Override
     public void run() {
         while (this.hasConflicts()) {
             for (int i = 0; i < this.comboios.size(); i++) {
                 for (int j = i + 1; j < this.comboios.size(); j++) {
-                    if ((this.comboios.get(i).getDirecaoComboio().getSentido()
-                            .equals(this.comboios.get(j).getDirecaoComboio().getSentido()))
+                    if ((this.comboios.get(i).getTrocoComboio().getSentido()
+                            .equals(this.comboios.get(j).getTrocoComboio().getSentido()))
                             && (this.comboios.get(i).getHorarioComboio().getHoraPartida()
                                     .equals(this.comboios.get(j).getHorarioComboio().getHoraPartida()))) {
                         if (!this.comboios.get(i).getHasFinished()) {
