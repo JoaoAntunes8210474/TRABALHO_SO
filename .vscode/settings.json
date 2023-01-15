@@ -1,0 +1,7 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "files.autoSave": "onFocusChange",
+    "editor.fontSize": 18,
+    "editor.cursorStyle": "line-thin"
+}
