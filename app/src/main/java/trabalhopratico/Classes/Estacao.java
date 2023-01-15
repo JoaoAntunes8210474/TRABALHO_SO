@@ -81,22 +81,21 @@ public class Estacao {
         this.listaPassageiros.add(passageiro);
     }
 
-    // o ideal era termos um run que faz isto
-    public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio) {
+    public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio){
         try {
+            Thread.sleep(300);
             comboio.add(passageiro);
             this.listaPassageiros.remove(passageiro);
         } catch (MaxCapacityException e) {
             try {
-                this.logWriter.write("[Comboio Sobrelotado Conflict Solver] - O " + passageiro.getName()
-                        + " tentou entrar no " + comboio.getNomeComboio() + ", no entanto, ele já estava cheio.\n");
+                this.logWriter.write("[Comboio Sobrelotado Conflict Solver] - O " + passageiro.getName() 
+                + " tentou entrar no " + comboio.getNomeComboio() + ", no entanto, ele já estava cheio.\n");
             } catch (IOException e1) {
             }
-
         } catch (InvalidBilheteException e) {
             System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
-        } catch (IOException e) {
-        }
+        } catch (IOException | InterruptedException e) {
+        } 
     }
 
     public void movePassageirosToEstacao(Comboio comboio) {
