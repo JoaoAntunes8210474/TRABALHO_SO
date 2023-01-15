@@ -28,9 +28,12 @@ public class Main {
     }
 
     /**
-     * Módulo que atribui aos passageiros o comboio que têm de entrar e começa o comportamento esperado
+     * Módulo que atribui aos passageiros o comboio que têm de entrar e começa o
+     * comportamento esperado
      * pelos passageiros.
-     * Há também uma tentativa de simular as portas do comboio abrirem e fecharem mas não foi concretizado com sucesso
+     * Há também uma tentativa de simular as portas do comboio abrirem e fecharem
+     * mas não foi concretizado com sucesso
+     * 
      * @param comboio
      */
     private static void moduloEmbarque(Comboio comboio) {
@@ -69,9 +72,9 @@ public class Main {
         while (!threadsPassageiros.isEmpty()) {
             try {
                 Iterator<Thread> iterator = threadsPassageiros.iterator();
-                //System.out.println("As portas do comboio abriram.");
-                //Thread.sleep(5000);
-                //System.out.println("As portas do comboio fecharam.");
+                // System.out.println("As portas do comboio abriram.");
+                // Thread.sleep(5000);
+                // System.out.println("As portas do comboio fecharam.");
 
                 while (iterator.hasNext()) {
                     Thread thread = iterator.next();
@@ -99,7 +102,7 @@ public class Main {
         int ascii = 'A';
 
         // Create the stations
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i <= 5; i++) {
             Estacao estacao = new Estacao("Estacao " + (char) ascii, moduloGestaoConflitoLog.getLogWriter());
             estacoes.add(estacao);
             ascii++;
@@ -110,6 +113,8 @@ public class Main {
         Linha linhaBC = new Linha(estacoes.get(1), estacoes.get(2));
         Linha linhaCD = new Linha(estacoes.get(2), estacoes.get(3));
         Linha linhaDE = new Linha(estacoes.get(3), estacoes.get(4));
+        Linha linhaEF = new Linha(estacoes.get(4), estacoes.get(5));
+        Linha linhaFA = new Linha(estacoes.get(5), estacoes.get(0));
 
         // Add lines to stations
         try {
@@ -120,6 +125,11 @@ public class Main {
             estacoes.get(2).addLinhas(linhaBC);
             estacoes.get(3).addLinhas(linhaDE);
             estacoes.get(3).addLinhas(linhaCD);
+            estacoes.get(4).addLinhas(linhaEF);
+            estacoes.get(4).addLinhas(linhaDE);
+            estacoes.get(5).addLinhas(linhaFA);
+            estacoes.get(5).addLinhas(linhaEF);
+
         } catch (MaxCapacityException e) {
             e.printStackTrace();
         }
@@ -145,6 +155,10 @@ public class Main {
                 LocalTime.of(8, 0), linhaBC, moduloGestaoConflitoLog.getLogWriter());
         Comboio comboio10 = new Comboio("Comboio 10", estacoes.get(3), estacoes.get(1),
                 LocalTime.of(8, 0), linhaCD, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio11 = new Comboio("Comboio 11", estacoes.get(5), estacoes.get(0),
+                LocalTime.of(8, 0), linhaFA, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio12 = new Comboio("Comboio 12", estacoes.get(5), estacoes.get(0),
+                LocalTime.of(8, 0), linhaEF, moduloGestaoConflitoLog.getLogWriter());
 
         try {
             estacoes.get(0).addComboio(comboio1);
@@ -157,6 +171,8 @@ public class Main {
             estacoes.get(3).addComboio(comboio8);
             estacoes.get(1).addComboio(comboio9);
             estacoes.get(3).addComboio(comboio10);
+            estacoes.get(5).addComboio(comboio11);
+            estacoes.get(5).addComboio(comboio12);
 
         } catch (MaxCapacityException e) {
             e.printStackTrace();
@@ -174,6 +190,8 @@ public class Main {
         comboios.add(comboio8);
         comboios.add(comboio9);
         comboios.add(comboio10);
+        comboios.add(comboio11);
+        comboios.add(comboio12);
 
         for (Comboio comboio : comboios) {
             comboio.addRoute();
@@ -184,6 +202,10 @@ public class Main {
         Bilhete bilhete2 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(0), estacoes.get(3));
         Bilhete bilhete3 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(4), estacoes.get(2));
         Bilhete bilhete4 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(3), estacoes.get(2));
+        Bilhete bilhete5 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(1), estacoes.get(3));
+        Bilhete bilhete6 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(5), estacoes.get(0));
+        Bilhete bilhete7 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(2), estacoes.get(1));
+        Bilhete bilhete8 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(3), estacoes.get(4));
 
         for (int i = 0; i < 40; i++) {
             // Create passengers
@@ -191,20 +213,36 @@ public class Main {
             int nif1 = random.nextInt(1000000000 - 100000000) + 100000000;
             int nif2 = random.nextInt(1000000000 - 100000000) + 100000000;
             int nif3 = random.nextInt(1000000000 - 100000000) + 100000000;
-            int nif4 = random.nextInt(1000000000 - 100000000) + 100000000; // quero meter de A a B
+            int nif4 = random.nextInt(1000000000 - 100000000) + 100000000;
+            int nif5 = random.nextInt(1000000000 - 100000000) + 100000000;
+            int nif6 = random.nextInt(1000000000 - 100000000) + 100000000;
+            int nif7 = random.nextInt(1000000000 - 100000000) + 100000000;
+            int nif8 = random.nextInt(1000000000 - 100000000) + 100000000;
             Passageiro passageiro1 = new Passageiro("Passageiro " + (char) ascii, nif1, bilhete1);
             Passageiro passageiro2 = new Passageiro("Passageiro " + (char) ascii, nif2, bilhete2);
             Passageiro passageiro3 = new Passageiro("Passageiro " + (char) ascii, nif3, bilhete3);
             Passageiro passageiro4 = new Passageiro("Passageiro " + (char) ascii, nif4, bilhete4);
+            Passageiro passageiro5 = new Passageiro("Passageiro " + (char) ascii, nif5, bilhete5);
+            Passageiro passageiro6 = new Passageiro("Passageiro " + (char) ascii, nif6, bilhete6);
+            Passageiro passageiro7 = new Passageiro("Passageiro " + (char) ascii, nif7, bilhete7);
+            Passageiro passageiro8 = new Passageiro("Passageiro " + (char) ascii, nif8, bilhete8);
             passageiros.add(passageiro1);
             passageiros.add(passageiro2);
             passageiros.add(passageiro3);
             passageiros.add(passageiro4);
+            passageiros.add(passageiro5);
+            passageiros.add(passageiro6);
+            passageiros.add(passageiro7);
+            passageiros.add(passageiro8);
             ascii++;
             estacoes.get(0).addPassageiro(passageiro1);
             estacoes.get(0).addPassageiro(passageiro2);
             estacoes.get(4).addPassageiro(passageiro3);
             estacoes.get(3).addPassageiro(passageiro4);
+            estacoes.get(1).addPassageiro(passageiro5);
+            estacoes.get(5).addPassageiro(passageiro6);
+            estacoes.get(2).addPassageiro(passageiro7);
+            estacoes.get(3).addPassageiro(passageiro8);
         }
 
         System.out.println("Passageiros em A: " + estacoes.get(0).getListaPassageiros().size());
@@ -212,9 +250,10 @@ public class Main {
         System.out.println("Passageiros em C: " + estacoes.get(2).getListaPassageiros().size());
         System.out.println("Passageiros em D: " + estacoes.get(3).getListaPassageiros().size());
         System.out.println("Passageiros em E: " + estacoes.get(4).getListaPassageiros().size());
+        System.out.println("Passageiros em F: " + estacoes.get(5).getListaPassageiros().size() + "\n");
 
         Horario moduloSimuladorTrafego = new Horario(LocalTime.of(8, 0),
-                LocalTime.of(13, 0));
+                LocalTime.of(14, 0));
 
         while (moduloSimuladorTrafego.getHoraPartida() != moduloSimuladorTrafego.getHoraChegada()) {
             Thread threadHorarioConflictSolver = new Thread(
@@ -238,7 +277,7 @@ public class Main {
                 }
             }
 
-            System.out.println("Hora atual: " + moduloSimuladorTrafego.getHoraPartida());
+            System.out.println("{Hora - " + moduloSimuladorTrafego.getHoraPartida() + "}");
             moduloSimuladorTrafego.setHoraPartida(moduloSimuladorTrafego.getHoraPartida().plusMinutes(10));
             try {
                 Thread.sleep(500);
@@ -254,10 +293,11 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("Passageiros em A: " + estacoes.get(0).getListaPassageiros().size());
+        System.out.println("\nPassageiros em A: " + estacoes.get(0).getListaPassageiros().size());
         System.out.println("Passageiros em B: " + estacoes.get(1).getListaPassageiros().size());
         System.out.println("Passageiros em C: " + estacoes.get(2).getListaPassageiros().size());
         System.out.println("Passageiros em D: " + estacoes.get(3).getListaPassageiros().size());
         System.out.println("Passageiros em E: " + estacoes.get(4).getListaPassageiros().size());
+        System.out.println("Passageiros em F: " + estacoes.get(5).getListaPassageiros().size());
     }
 }

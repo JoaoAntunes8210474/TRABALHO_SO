@@ -89,7 +89,7 @@ public class Passageiro implements Runnable {
         }
         this.bilhete.getEstacaoPartida().movePassageiroToComboio(this, this.comboioEntrar);
 
-        System.out.println("[" + this.getName() + "] - A embarcar passageiro " + Thread.currentThread().getName());
+        System.out.println("[" + comboioEntrar.getNomeComboio() + " (" +comboioEntrar.getCount() +"/" + comboioEntrar.getMax() + ")] - A embarcar passageiro " + Thread.currentThread().getId());
         this.comboioEntrar.getEstacaoPartida().getSemaphore().release();
     }
 }
