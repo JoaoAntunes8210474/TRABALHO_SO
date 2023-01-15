@@ -1,128 +1,63 @@
-[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro P tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Q tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro R tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro S tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro T tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro U tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro V tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro W tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro X tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Y tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Z tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro [ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro \ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ] tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ^ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro _ tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ` tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro a tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro b tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro c tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro d tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro e tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro f tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro g tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro h tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
 [Comboio Sobrelotado Conflict Solver] - O Passageiro i tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro j tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro m tentou entrar no Comboio 1, no entanto, ele já estava cheio.
 [Comboio Sobrelotado Conflict Solver] - O Passageiro k tentou entrar no Comboio 1, no entanto, ele já estava cheio.
 [Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro m tentou entrar no Comboio 1, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro P tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Q tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro R tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro S tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro T tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro U tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro V tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro W tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro X tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Y tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Z tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro [ tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro \ tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ] tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ^ tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro _ tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ` tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro a tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro b tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro c tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro d tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro e tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro f tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro g tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro h tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro i tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro j tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro k tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro m tentou entrar no Comboio 2, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro P tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Q tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro R tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro S tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro T tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro U tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro V tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro W tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro X tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Y tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Z tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro [ tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro \ tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ] tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ^ tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro _ tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ` tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro a tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro b tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro c tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro d tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro e tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro f tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro g tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro h tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro i tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro j tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro k tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro m tentou entrar no Comboio 3, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro P tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Q tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro R tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro S tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro T tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro U tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro V tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro W tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro X tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Y tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro Z tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro [ tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro \ tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ] tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ^ tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro _ tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro ` tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro a tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro b tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro c tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro d tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro e tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro f tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro g tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro h tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro i tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro j tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro k tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Comboio Sobrelotado Conflict Solver] - O Passageiro m tentou entrar no Comboio 4, no entanto, ele já estava cheio.
-[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro j tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro H tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro G tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro I tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro J tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro K tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
 [Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
-[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
-[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
-[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
-[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
-[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 10 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 10 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
