@@ -11,7 +11,7 @@ import trabalhopratico.Exceptions.MaxCapacityException;
 
 public class Comboio implements Runnable {
     // Número máximo de passageiros no comboio
-    private static final int MAX_PASSAGEIROS = 10;
+    private static final int MAX_PASSAGEIROS = 30;
     // Lista de passageiros de um conboio
     private Passageiro[] listaPassageiros;
     // Número de passageiros no comboio
@@ -65,7 +65,7 @@ public class Comboio implements Runnable {
     }
 
     protected void incrementNumberOfDelays() {
-         this.countDelays++;
+        this.countDelays++;
     }
 
     /**
@@ -120,7 +120,6 @@ public class Comboio implements Runnable {
      * @throws IOException
      */
 
-     
     public void add(Passageiro passageiro) throws MaxCapacityException, InvalidBilheteException, IOException {
         if (this.count == MAX_PASSAGEIROS) {
             throw new MaxCapacityException("Comboio cheio!");
@@ -131,11 +130,10 @@ public class Comboio implements Runnable {
             this.count++;
             this.listaPassageiros[this.count - 1] = passageiro;
         } else {
-            throw new InvalidBilheteException("O passageiro tem o bilhete inválido");
+            throw new InvalidBilheteException("O passageiro tem o bilhete inválido! ");
         }
     }
 
-    
     public void remove(int indexRemove) {
         for (int i = indexRemove; i < listaPassageiros.length - 1; i++) {
             listaPassageiros[i] = listaPassageiros[i + 1];
@@ -162,13 +160,17 @@ public class Comboio implements Runnable {
                         + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(100);
                 this.estacaoPartida.removeComboio(this);
-                this.estacaoChegada.addComboio(this);
-                Thread.sleep(100);
-                System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
-                        + this.estacaoChegada.getNome() + " as "
-                        + this.getHorarioComboio().getHoraChegada().toString());
-                Thread.sleep(100);
-                System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                if (this.estacaoChegada.getAddComboio()) {
+                    this.estacaoChegada.addComboio(this);
+                    Thread.sleep(100);
+                    System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
+                            + this.estacaoChegada.getNome() + " as "
+                            + this.getHorarioComboio().getHoraChegada().toString());
+                    Thread.sleep(100);
+                    System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                } else {
+                    System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
+                }
                 if (this.count != 0) {
                     this.estacaoChegada.movePassageirosToEstacao(this);
                 }
@@ -178,6 +180,7 @@ public class Comboio implements Runnable {
                     this.estacaoChegada = this.troco.getEstacaoArrival(estacaoPartida);
                 } else {
                     this.acabouViagem = true;
+                    this.estacaoChegada.removeComboio(this);    // O comboio chegou ao fim e agora é removido
                 }
             } else {
                 // System.out.println("Numero de passageiros: " + this.getCount()); // TEST
@@ -186,13 +189,17 @@ public class Comboio implements Runnable {
                         + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(100);
                 this.estacaoPartida.removeComboio(this);
-                this.estacaoChegada.addComboio(this);
-                Thread.sleep(100);
-                System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
-                        + this.estacaoChegada.getNome() + " as "
-                        + this.getHorarioComboio().getHoraChegada().toString());
-                Thread.sleep(100);
-                System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                if (this.estacaoChegada.getAddComboio()) {
+                    this.estacaoChegada.addComboio(this);
+                    Thread.sleep(100);
+                    System.out.println("[" + Thread.currentThread().getName() + "] - A chegar a estacao "
+                            + this.estacaoChegada.getNome() + " as "
+                            + this.getHorarioComboio().getHoraChegada().toString());
+                    Thread.sleep(100);
+                    System.out.println("[" + Thread.currentThread().getName() + "] - A desembarcar passageiros...");
+                } else {
+                    System.out.println("[" + Thread.currentThread().getName() + "] - A ignorar estacao...");
+                }
                 if (this.count != 0) {
                     this.estacaoChegada.movePassageirosToEstacao(this);
                 }
@@ -202,6 +209,7 @@ public class Comboio implements Runnable {
                     this.estacaoChegada = this.troco.getEstacaoArrival(estacaoChegada);
                 } else {
                     this.acabouViagem = true;
+                    this.estacaoChegada.removeComboio(this);
                 }
             }
             this.horario.setHoraPartida(this.horario.getHoraPartida().plusMinutes(30));

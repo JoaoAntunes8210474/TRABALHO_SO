@@ -18,6 +18,7 @@ import trabalhopratico.Classes.Passageiro;
 import trabalhopratico.Exceptions.MaxCapacityException;
 
 public class Main {
+    public static boolean doorsClosed;
     private static ArrayList<Estacao> estacoes;
     private static ArrayList<Comboio> comboios;
     private static ArrayList<Passageiro> passageiros;
@@ -37,39 +38,36 @@ public class Main {
                             .equals(comboio.getDestinoFinal()))) {
                 comboio.getEstacaoPartida().getListaPassageiros().get(i).setComboioEntrar(comboio);
                 Thread threadPassageiro = new Thread(comboio.getEstacaoPartida().getListaPassageiros().get(i));
+                threadPassageiro.setName(comboio.getEstacaoPartida().getListaPassageiros().get(i).getName());
                 threadsPassageiros.add(threadPassageiro);
             }
         }
 
         for (Thread thread : threadsPassageiros) {
-            try {
-                comboio.getEstacaoPartida().getSemaphore().acquire();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             thread.start();
         }
 
+        System.out.println("As portas do comboio abriram.");
         while (!threadsPassageiros.isEmpty()) {
             try {
                 Iterator<Thread> iterator = threadsPassageiros.iterator();
-                Thread.sleep(1000);
+                Thread.sleep(5000);
+                System.out.println("As portas do comboio fecharam.");
 
                 while (iterator.hasNext()) {
                     Thread thread = iterator.next();
                     if (thread.isAlive()) {
-                        for (int i = 0; i < threadsPassageiros.size(); i++) {
-                            threadsPassageiros.get(i).sleep(400);
-                        }
+                        thread.sleep(2000);
                     } else {
                         iterator.remove();
                     }
                 }
-                Thread.sleep(100);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+
     }
 
     private static void startModules(FileWriter logWriter) {
@@ -120,23 +118,48 @@ public class Main {
         }
 
         // Create the trains
-        Comboio comboio1 = new Comboio("Comboio 1", estacoes.get(0), estacoes.get(1), estacoes.get(3),
+        Comboio comboio1 = new Comboio("Comboio 1", estacoes.get(0), estacoes.get(1), estacoes.get(4),
                 LocalTime.of(8, 0), linhaAB, moduloGestaoConflitoLog.getLogWriter());
-        Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(1), estacoes.get(2), estacoes.get(4),
-                LocalTime.of(8, 0), linhaBC, moduloGestaoConflitoLog.getLogWriter());
-        Comboio comboio3 = new Comboio("Comboio 3", estacoes.get(4), estacoes.get(3), estacoes.get(0),
+        Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(0), estacoes.get(1),
+                estacoes.get(4),
+                LocalTime.of(8, 0), linhaAB, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio3 = new Comboio("Comboio 3", estacoes.get(0), estacoes.get(1),
+                estacoes.get(4),
+                LocalTime.of(8, 30), linhaAB, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio4 = new Comboio("Comboio 4", estacoes.get(0), estacoes.get(1),
+                estacoes.get(4),
+                LocalTime.of(8, 30), linhaAB, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio5 = new Comboio("Comboio 5", estacoes.get(0), estacoes.get(1),
+                estacoes.get(4),
+                LocalTime.of(8, 30), linhaDE, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio6 = new Comboio("Comboio 6", estacoes.get(4), estacoes.get(3),
+                estacoes.get(0),
                 LocalTime.of(8, 0), linhaDE, moduloGestaoConflitoLog.getLogWriter());
-        Comboio comboio4 = new Comboio("Comboio 4", estacoes.get(3), estacoes.get(2), estacoes.get(1),
-                LocalTime.of(8, 0), linhaCD, moduloGestaoConflitoLog.getLogWriter());
-        Comboio comboio5 = new Comboio("Comboio 5", estacoes.get(2), estacoes.get(3), estacoes.get(4),
-                LocalTime.of(8, 0), linhaCD, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio7 = new Comboio("Comboio 7", estacoes.get(4), estacoes.get(3),
+                estacoes.get(0),
+                LocalTime.of(8, 0), linhaDE, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio8 = new Comboio("Comboio 8", estacoes.get(4), estacoes.get(3),
+                estacoes.get(0),
+                LocalTime.of(8, 0), linhaDE, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio9 = new Comboio("Comboio 9", estacoes.get(4), estacoes.get(3),
+                estacoes.get(0),
+                LocalTime.of(8, 30), linhaDE, moduloGestaoConflitoLog.getLogWriter());
+        Comboio comboio10 = new Comboio("Comboio 10", estacoes.get(4),
+                estacoes.get(3), estacoes.get(0),
+                LocalTime.of(8, 30), linhaDE, moduloGestaoConflitoLog.getLogWriter());
 
         try {
             estacoes.get(0).addComboio(comboio1);
-            estacoes.get(1).addComboio(comboio2);
-            estacoes.get(4).addComboio(comboio3);
-            estacoes.get(3).addComboio(comboio4);
-            estacoes.get(4).addComboio(comboio5);
+            estacoes.get(0).addComboio(comboio2);
+            estacoes.get(0).addComboio(comboio3);
+            estacoes.get(0).addComboio(comboio4);
+            estacoes.get(0).addComboio(comboio5);
+            estacoes.get(4).addComboio(comboio6);
+            estacoes.get(4).addComboio(comboio7);
+            estacoes.get(4).addComboio(comboio8);
+            estacoes.get(4).addComboio(comboio9);
+            estacoes.get(4).addComboio(comboio10);
+
         } catch (MaxCapacityException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -147,6 +170,12 @@ public class Main {
         comboios.add(comboio3);
         comboios.add(comboio4);
         comboios.add(comboio5);
+        comboios.add(comboio6);
+        comboios.add(comboio7);
+        comboios.add(comboio8);
+        comboios.add(comboio9);
+        comboios.add(comboio10);
+
         // Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(2), estacoes.get(1),
         // estacoes.get(0),
         // LocalTime.of(8, 15), LocalTime.of(8, 45), linhaBC,
@@ -160,10 +189,10 @@ public class Main {
         // comboios.add(comboio2);
 
         // Create tickets
-        Bilhete bilhete1 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(0), estacoes.get(3));
-        Bilhete bilhete2 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(1), estacoes.get(4));
-        Bilhete bilhete3 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(4), estacoes.get(0));
-        Bilhete bilhete4 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(3), estacoes.get(1));
+        Bilhete bilhete1 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(0), estacoes.get(4));
+        Bilhete bilhete2 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(4), estacoes.get(0));
+        Bilhete bilhete3 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(4), estacoes.get(2));
+        Bilhete bilhete4 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(3), estacoes.get(2));
 
         // Create passengers
         Random random = new Random();
@@ -180,13 +209,15 @@ public class Main {
             passageiros.add(passageiro4);
             ascii++;
             estacoes.get(0).addPassageiro(passageiro1);
-            estacoes.get(1).addPassageiro(passageiro2);
-            estacoes.get(4).addPassageiro(passageiro3);
-            estacoes.get(3).addPassageiro(passageiro4);
-            passageiro1.setComboioEntrar(comboio1);
-            passageiro1.setComboioEntrar(comboio2);
-            passageiro1.setComboioEntrar(comboio3);
-            passageiro1.setComboioEntrar(comboio4);
+            // estacoes.get(1).addPassageiro(passageiro2);
+            // estacoes.get(4).addPassageiro(passageiro3);
+            // estacoes.get(3).addPassageiro(passageiro4);
+            /*
+             * passageiro1.setComboioEntrar(comboio1);
+             * passageiro2.setComboioEntrar(comboio2);
+             * passageiro3.setComboioEntrar(comboio3);
+             * passageiro4.setComboioEntrar(comboio4);
+             */
         }
         // Fazer ciclo for para dar add a estacao diferentes TESTE TESTE TESTE
         // Fazer overload a carregar passageiros, lista de passageiros TESTE TESTE TESTE
@@ -200,7 +231,7 @@ public class Main {
         System.out.println("Passageiros em E: " + estacoes.get(4).getListaPassageiros().size());
 
         Horario moduloSimuladorTrafego = new Horario(LocalTime.of(8, 0),
-                LocalTime.of(13, 0));
+                LocalTime.of(15, 0));
 
         while (moduloSimuladorTrafego.getHoraPartida() != moduloSimuladorTrafego.getHoraChegada()) {
             Thread threadHorarioConflictSolver = new Thread(
@@ -214,7 +245,7 @@ public class Main {
 
             for (int i = 0; i < comboios.size(); i++) {
                 if (comboios.get(i).getHorarioComboio().getHoraPartida()
-                        .compareTo(moduloSimuladorTrafego.getHoraPartida()) == 0) {
+                        .equals(moduloSimuladorTrafego.getHoraPartida())) {
                     moduloEmbarque(comboios.get(i));
                     if (!comboios.get(i).getHasFinished()) {
                         Thread threadComboio = new Thread(comboios.get(i));
