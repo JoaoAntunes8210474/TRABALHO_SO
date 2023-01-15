@@ -83,6 +83,7 @@ public class Estacao {
     // o ideal era termos um run que faz isto
     public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio){
         try {
+            Thread.sleep(300);
             comboio.add(passageiro);
             this.listaPassageiros.remove(passageiro);
         } catch (MaxCapacityException e) {
@@ -91,11 +92,10 @@ public class Estacao {
                 + " tentou entrar no " + comboio.getNomeComboio() + ", no entanto, ele já estava cheio.\n");
             } catch (IOException e1) {
             }     
-
         } catch (InvalidBilheteException e) {
             System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
-        } catch (IOException e) {
-        }
+        } catch (IOException | InterruptedException e) {
+        } 
     }
 
     public void movePassageirosToEstacao(Comboio comboio) {
@@ -106,7 +106,7 @@ public class Estacao {
         }*/
         for (int i = 0; i < comboio.getCount(); i++) {
             //System.out.println(comboio.getListaPassageiros()[i].getName());
-            if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino().equals(comboio.getEstacaoChegada())) {
+            if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino().equals(comboio.getEstacaoParagem().get(0))) {
                 this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
                 comboio.remove(i);
                 i--;

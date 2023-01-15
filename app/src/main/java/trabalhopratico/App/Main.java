@@ -49,16 +49,16 @@ public class Main {
             thread.start();
         }
 
-        System.out.println("As portas do comboio abriram.");
         while (!threadsPassageiros.isEmpty()) {
             try {
                 Iterator<Thread> iterator = threadsPassageiros.iterator();
+                System.out.println("As portas do comboio abriram.");
                 Thread.sleep(5000);
                 System.out.println("As portas do comboio fecharam.");
 
                 while (iterator.hasNext()) {
                     Thread thread = iterator.next();
-                    if (thread.isAlive()) {
+                    if (thread.getState().compareTo(Thread.State.TIMED_WAITING) == 0 || thread.isAlive()) {
                         thread.sleep(2000);
                     } else {
                         iterator.remove();
