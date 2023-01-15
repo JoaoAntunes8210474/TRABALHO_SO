@@ -245,12 +245,16 @@ public class Main {
             estacoes.get(3).addPassageiro(passageiro8);
         }
 
+
+
         System.out.println("Passageiros em A: " + estacoes.get(0).getListaPassageiros().size());
         System.out.println("Passageiros em B: " + estacoes.get(1).getListaPassageiros().size());
         System.out.println("Passageiros em C: " + estacoes.get(2).getListaPassageiros().size());
         System.out.println("Passageiros em D: " + estacoes.get(3).getListaPassageiros().size());
         System.out.println("Passageiros em E: " + estacoes.get(4).getListaPassageiros().size());
         System.out.println("Passageiros em F: " + estacoes.get(5).getListaPassageiros().size() + "\n");
+
+        System.out.println("-Iniciou Simulacao-\n");
 
         Horario moduloSimuladorTrafego = new Horario(LocalTime.of(8, 0),
                 LocalTime.of(14, 0));
@@ -292,6 +296,8 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println("\n-Terminou Simulacao-");
 
         System.out.println("\nPassageiros em A: " + estacoes.get(0).getListaPassageiros().size());
         System.out.println("Passageiros em B: " + estacoes.get(1).getListaPassageiros().size());
