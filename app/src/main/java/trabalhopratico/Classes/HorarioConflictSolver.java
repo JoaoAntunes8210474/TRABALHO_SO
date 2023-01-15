@@ -5,27 +5,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class HorarioConflictSolver implements Runnable {
-    // ArrayList com os comboios todos do projeto
+    // ArrayList de todos os comboios do projeto
     private ArrayList<Comboio> comboios;
-
+    // Escrever no ficheiro
     private FileWriter logWriter;
 
+    // Construtor
     public HorarioConflictSolver(ArrayList<Comboio> comboios, FileWriter logWriter) {
         this.comboios = comboios;
         this.logWriter = logWriter;
     }
 
+    /**
+     * Verifica a existência de conflitos de horário, como acederem à mesma linha ao
+     * mesmo tempo
+     * 
+     * @return true or false
+     */
     private boolean hasConflicts() {
         for (int i = 0; i < this.comboios.size(); i++) {
             for (int j = i + 1; j < this.comboios.size(); j++) {
-                // System.out.println("Direcao comboio1: " +
-                // this.comboios.get(i).getDirecaoComboio().getSentido());
-                // System.out.println("Direcao comboio2: " +
-                // this.comboios.get(j).getDirecaoComboio().getSentido());
-                // System.out.println("Horario comboio1: " +
-                // this.comboios.get(i).getHorarioComboio().getHoraPartida());
-                // System.out.println("Horario comboio2: " +
-                // this.comboios.get(j).getHorarioComboio().getHoraPartida());
                 if ((this.comboios.get(i).getDirecaoComboio().getSentido()
                         .equals(this.comboios.get(j).getDirecaoComboio().getSentido()))
                         && (this.comboios.get(i).getHorarioComboio().getHoraPartida()
@@ -40,6 +39,10 @@ public class HorarioConflictSolver implements Runnable {
         return false;
     }
 
+    /**
+     * 
+     */
+    @Override
     public void run() {
         while (this.hasConflicts()) {
             for (int i = 0; i < this.comboios.size(); i++) {
@@ -59,10 +62,6 @@ public class HorarioConflictSolver implements Runnable {
                                     this.logWriter.flush();
                                 } catch (IOException e) {
                                 }
-                            //   System.out.println("Direcao " + this.comboios.get(i).getNomeComboio() + ": " + this.comboios.get(i).getDirecaoComboio().getSentido());
-                            //    System.out.println("Direcao " + this.comboios.get(j).getNomeComboio() + ": " + this.comboios.get(j).getDirecaoComboio().getSentido());
-                            //    System.out.println("Horario " + this.comboios.get(j).getNomeComboio() + ": " + this.comboios.get(i).getHorarioComboio().getHoraPartida());
-                            //    System.out.println("Horario " + this.comboios.get(j).getNomeComboio() + ": " + this.comboios.get(j).getHorarioComboio().getHoraPartida());
 
                                 this.comboios.get(i).getHorarioComboio().setHoraPartida(
                                         this.comboios.get(i).getHorarioComboio().getHoraPartida().plusMinutes(30));
@@ -80,15 +79,7 @@ public class HorarioConflictSolver implements Runnable {
                                     this.logWriter.flush();
                                 } catch (IOException e) {
                                 }
-                            /*    System.out.println("Direcao comboio1: " +
-                                        this.comboios.get(i).getDirecaoComboio().getSentido());
-                                System.out.println("Direcao comboio2: " +
-                                        this.comboios.get(j).getDirecaoComboio().getSentido());
-                                System.out.println("Horario comboio1: " +
-                                        this.comboios.get(i).getHorarioComboio().getHoraPartida());
-                                System.out.println("Horario comboio2: " +
-                                        this.comboios.get(j).getHorarioComboio().getHoraPartida());
-*/
+
                                 this.comboios.get(j).getHorarioComboio().setHoraPartida(
                                         this.comboios.get(j).getHorarioComboio().getHoraPartida().plusMinutes(30));
                                 this.comboios.get(j).getHorarioComboio().setHoraChegada(

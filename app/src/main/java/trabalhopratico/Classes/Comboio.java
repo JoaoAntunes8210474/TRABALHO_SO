@@ -18,7 +18,7 @@ public class Comboio implements Runnable {
     private int count;
     // Estação de partida do comboio
     private Estacao estacaoPartida;
-    // Estacao de chegada do comboio
+    // Estações de chegada do comboio
     private ArrayList<Estacao> estacoesParagem;
     // Estacao de destino do comboio. Pode ser igual à variável estacaoChegada.
     private Estacao destinoFinal;
@@ -30,9 +30,9 @@ public class Comboio implements Runnable {
     private Linha troco;
     // Nome do comboio
     private String nomeComboio;
-
+    // número de delays que o comboio sofre
     private int countDelays;
-
+    // boolean de acabar a viagem
     private boolean acabouViagem;
 
     // Construtor
@@ -51,19 +51,17 @@ public class Comboio implements Runnable {
         this.acabouViagem = false;
     }
 
-    /**
-     * Returns the number of passengers
-     * 
-     * @return number of passengers
-     */
+    // getter do número de passageiros
     public int getCount() {
         return this.count;
     }
 
+    // getter do número de atrasos
     public int getNumberOfDelays() {
         return this.countDelays;
     }
 
+    // increments the number of delays
     protected void incrementNumberOfDelays() {
         this.countDelays++;
     }
@@ -150,6 +148,13 @@ public class Comboio implements Runnable {
         return this.listaPassageiros[integer];
     }
 
+    /**
+     * Um comboio temporário simula a viagem e guarda as estações intermédias, desde
+     * a estação de partida até ao destino final usando a lógica de navegação já
+     * presente no método run
+     * Após terminar o trajeto apenas guardamos todas as paragens intermédias do
+     * comboio temporário, no comboio real
+     */
     public void addRoute() {
         Comboio tempComboio = new Comboio(this.nomeComboio, this.estacaoPartida, this.destinoFinal,
                 this.horario.getHoraPartida(), this.troco, this.logWriter);
@@ -232,7 +237,7 @@ public class Comboio implements Runnable {
                         + this.getHorarioComboio().getHoraPartida().toString());
                 Thread.sleep(100);
                 this.estacaoPartida.removeComboio(this);
-                
+
                 if (this.getEstacaoParagem().size() != 0) {
                     if (this.estacoesParagem.get(0).getAddComboio()) {
                         this.estacoesParagem.get(0).addComboio(this);
