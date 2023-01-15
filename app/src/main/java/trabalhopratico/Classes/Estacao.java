@@ -140,7 +140,7 @@ public class Estacao {
      */
     public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio) {
         try {
-            Thread.sleep(300);
+            Thread.sleep(100);
             comboio.add(passageiro);
             this.listaPassageiros.remove(passageiro);
         } catch (MaxCapacityException e) {

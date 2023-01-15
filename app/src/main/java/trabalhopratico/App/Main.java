@@ -69,9 +69,9 @@ public class Main {
         while (!threadsPassageiros.isEmpty()) {
             try {
                 Iterator<Thread> iterator = threadsPassageiros.iterator();
-                System.out.println("As portas do comboio abriram.");
-                Thread.sleep(5000);
-                System.out.println("As portas do comboio fecharam.");
+                //System.out.println("As portas do comboio abriram.");
+                //Thread.sleep(5000);
+                //System.out.println("As portas do comboio fecharam.");
 
                 while (iterator.hasNext()) {
                     Thread thread = iterator.next();
