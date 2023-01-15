@@ -24,7 +24,7 @@ public class Estacao {
     private ArrayList<Passageiro> listaPassageiros;
     // Número de passageiros na estação
     private int count;
-    // 
+    //
     private FileWriter logWriter;
 
     private Semaphore semaphore;
@@ -80,17 +80,18 @@ public class Estacao {
     public void addPassageiro(Passageiro passageiro) {
         this.listaPassageiros.add(passageiro);
     }
+
     // o ideal era termos um run que faz isto
-    public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio){
+    public void movePassageiroToComboio(Passageiro passageiro, Comboio comboio) {
         try {
             comboio.add(passageiro);
             this.listaPassageiros.remove(passageiro);
         } catch (MaxCapacityException e) {
             try {
-                this.logWriter.write("[Comboio Sobrelotado Conflict Solver] - O " + passageiro.getName() 
-                + " tentou entrar no " + comboio.getNomeComboio() + ", no entanto, ele já estava cheio.\n");
+                this.logWriter.write("[Comboio Sobrelotado Conflict Solver] - O " + passageiro.getName()
+                        + " tentou entrar no " + comboio.getNomeComboio() + ", no entanto, ele já estava cheio.\n");
             } catch (IOException e1) {
-            }     
+            }
 
         } catch (InvalidBilheteException e) {
             System.out.println("O passageiro não pode entrar no comboio porque o seu bilhete é inválido.");
@@ -99,21 +100,34 @@ public class Estacao {
     }
 
     public void movePassageirosToEstacao(Comboio comboio) {
-        /*try {
-            this.semaphore.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+        /*
+         * try {
+         * this.semaphore.acquire();
+         * } catch (InterruptedException e) {
+         * e.printStackTrace();
+         * }
+         */
         for (int i = 0; i < comboio.getCount(); i++) {
-            //System.out.println(comboio.getListaPassageiros()[i].getName());
-            if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino().equals(comboio.getEstacaoChegada())) {
-                this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
-                comboio.remove(i);
-                i--;
-                //System.out.println("Tamanho da lista de comboios: "+this.listaComboios.size());
+            // System.out.println(comboio.getListaPassageiros()[i].getName());
+            if (comboio.getEstacaoParagem().size() != 0) {
+                if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino()
+                        .equals(comboio.getEstacaoParagem().get(0))) {
+                    this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
+                    comboio.remove(i);
+                    i--;
+                    // System.out.println("Tamanho da lista de comboios:
+                    // "+this.listaComboios.size());
+                }
+            } else {
+                if (comboio.getListaPassageiros()[i].getBilhete().getEstacaoDestino()
+                        .equals(comboio.getDestinoFinal())) {
+                    this.listaPassageiros.add(comboio.getListaPassageiros()[i]);
+                    comboio.remove(i);
+                    i--;
+                }
             }
         }
-        //this.semaphore.release();
+        // this.semaphore.release();
     }
 
     public void addComboio(Comboio comboio) throws MaxCapacityException, IOException {
@@ -121,7 +135,8 @@ public class Estacao {
             this.listaComboios.add(comboio);
         } else {
             this.addComboio = false;
-            this.logWriter.write("[Estação Sobrelotada Conflict Solver] - O " + comboio.getNomeComboio() + " tentou entrar na " + this.nome + ", no entanto, ela já estava cheia.\n");
+            this.logWriter.write("[Estação Sobrelotada Conflict Solver] - O " + comboio.getNomeComboio()
+                    + " tentou entrar na " + this.nome + ", no entanto, ela já estava cheia.\n");
             throw new MaxCapacityException("A estação atingiu o limite de comboios!");
         }
 
