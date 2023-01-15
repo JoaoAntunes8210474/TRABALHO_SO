@@ -24,7 +24,6 @@ public class Main {
     private static ArrayList<Estacao> estacoes;
     private static ArrayList<Comboio> comboios;
     private static ArrayList<Passageiro> passageiros;
-    private static ArrayList<Linha> linhas;
 
     public static ArrayList<Comboio> getAllComboios() {
         return comboios;
@@ -59,15 +58,14 @@ public class Main {
 
         ArrayList<Thread> threadsPassageiros = new ArrayList<>(map.values());
 
-        System.out.println("Sout: " + threadsPassageiros.size()); //
         for (Thread thread : threadsPassageiros) {
             thread.start();
         }
 
-        System.out.println("As portas do comboio abriram.");
         while (!threadsPassageiros.isEmpty()) {
             try {
                 Iterator<Thread> iterator = threadsPassageiros.iterator();
+                System.out.println("As portas do comboio abriram.");
                 Thread.sleep(5000);
                 System.out.println("As portas do comboio fecharam.");
 
@@ -102,7 +100,6 @@ public class Main {
         estacoes = new ArrayList<>();
         comboios = new ArrayList<>();
         passageiros = new ArrayList<>();
-        linhas = new ArrayList<>();
 
         ConflictLogs moduloGestaoConflitoLog = new ConflictLogs();
 
@@ -277,7 +274,7 @@ public class Main {
             }
 
             System.out.println("Hora atual: " + moduloSimuladorTrafego.getHoraPartida());
-            moduloSimuladorTrafego.setHoraPartida(moduloSimuladorTrafego.getHoraPartida().plusMinutes(5));
+            moduloSimuladorTrafego.setHoraPartida(moduloSimuladorTrafego.getHoraPartida().plusMinutes(10));
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
