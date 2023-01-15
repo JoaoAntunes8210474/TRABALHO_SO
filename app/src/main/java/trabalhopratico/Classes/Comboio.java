@@ -6,7 +6,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import trabalhopratico.App.Main;
 import trabalhopratico.Exceptions.InvalidBilheteException;
 import trabalhopratico.Exceptions.MaxCapacityException;
 
