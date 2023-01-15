@@ -1,6 +1,5 @@
 package trabalhopratico.App;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ import trabalhopratico.Classes.Passageiro;
 import trabalhopratico.Exceptions.MaxCapacityException;
 
 public class Main {
-    public static boolean doorsClosed;
     private static ArrayList<Estacao> estacoes;
     private static ArrayList<Comboio> comboios;
     private static ArrayList<Passageiro> passageiros;
@@ -29,6 +27,12 @@ public class Main {
         return comboios;
     }
 
+    /**
+     * Módulo que atribui aos passageiros o comboio que têm de entrar e começa o comportamento esperado
+     * pelos passageiros.
+     * Há também uma tentativa de simular as portas do comboio abrirem e fecharem mas não foi concretizado com sucesso
+     * @param comboio
+     */
     private static void moduloEmbarque(Comboio comboio) {
         ArrayList<Thread> tempThreadsPassageiros = new ArrayList<>();
 
@@ -65,13 +69,13 @@ public class Main {
         while (!threadsPassageiros.isEmpty()) {
             try {
                 Iterator<Thread> iterator = threadsPassageiros.iterator();
-                System.out.println("As portas do comboio abriram.");
-                Thread.sleep(5000);
-                System.out.println("As portas do comboio fecharam.");
+                //System.out.println("As portas do comboio abriram.");
+                //Thread.sleep(5000);
+                //System.out.println("As portas do comboio fecharam.");
 
                 while (iterator.hasNext()) {
                     Thread thread = iterator.next();
-                    if (thread.isAlive()) {
+                    if (thread.getState().compareTo(Thread.State.TIMED_WAITING) == 0 || thread.isAlive()) {
                         thread.sleep(2000);
                     } else {
                         iterator.remove();
@@ -83,17 +87,6 @@ public class Main {
             }
         }
 
-    }
-
-    private static void startModules(FileWriter logWriter) {
-        Thread horarioConflictSolver = new Thread(new HorarioConflictSolver(comboios, logWriter));
-
-        horarioConflictSolver.start();
-        try {
-            horarioConflictSolver.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void main(String[] args) {
@@ -170,6 +163,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         comboios.add(comboio1);
         comboios.add(comboio2);
         comboios.add(comboio3);
@@ -184,18 +178,6 @@ public class Main {
         for (Comboio comboio : comboios) {
             comboio.addRoute();
         }
-
-        // Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(2), estacoes.get(1),
-        // estacoes.get(0),
-        // LocalTime.of(8, 15), LocalTime.of(8, 45), linhaBC,
-        // moduloGestaoConflitoLog.getLogWriter());
-
-        // Comboio comboio2 = new Comboio("Comboio 2", estacoes.get(1), estacoes.get(0),
-        // estacoes.get(0), LocalTime.of(8, 0), LocalTime.of(8, 30),
-        // moduloGestaoConflitoLog.getLogWriter());
-
-        // comboios.add(comboio1);
-        // comboios.add(comboio2);
 
         // Create tickets
         Bilhete bilhete1 = new Bilhete(LocalTime.of(8, 0), LocalTime.of(17, 0), estacoes.get(0), estacoes.get(3));
@@ -223,17 +205,7 @@ public class Main {
             estacoes.get(0).addPassageiro(passageiro2);
             estacoes.get(4).addPassageiro(passageiro3);
             estacoes.get(3).addPassageiro(passageiro4);
-            /*
-             * passageiro1.setComboioEntrar(comboio1);
-             * passageiro2.setComboioEntrar(comboio2);
-             * passageiro3.setComboioEntrar(comboio3);
-             * passageiro4.setComboioEntrar(comboio4);
-             */
         }
-        // Fazer ciclo for para dar add a estacao diferentes TESTE TESTE TESTE
-        // Fazer overload a carregar passageiros, lista de passageiros TESTE TESTE TESTE
-
-        startModules(moduloGestaoConflitoLog.getLogWriter());
 
         System.out.println("Passageiros em A: " + estacoes.get(0).getListaPassageiros().size());
         System.out.println("Passageiros em B: " + estacoes.get(1).getListaPassageiros().size());
@@ -262,13 +234,6 @@ public class Main {
                         Thread threadComboio = new Thread(comboios.get(i));
                         threadComboio.setName(comboios.get(i).getNomeComboio());
                         threadComboio.start();
-                        /*
-                         * try {
-                         * threadComboio.join();
-                         * } catch (InterruptedException e) {
-                         * e.printStackTrace();
-                         * }
-                         */
                     }
                 }
             }
@@ -286,7 +251,6 @@ public class Main {
             moduloGestaoConflitoLog.getLogWriter().flush();
             moduloGestaoConflitoLog.getLogWriter().close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -295,129 +259,5 @@ public class Main {
         System.out.println("Passageiros em C: " + estacoes.get(2).getListaPassageiros().size());
         System.out.println("Passageiros em D: " + estacoes.get(3).getListaPassageiros().size());
         System.out.println("Passageiros em E: " + estacoes.get(4).getListaPassageiros().size());
-
-        /*
-         * System.out.println(linhaAB.getSentido());
-         * 
-         * Thread threadPassageiro1 = new
-         * Thread(estacoes.get(0).getListaPassageiros().get(0));
-         * threadPassageiro1 = new Thread(estacoes.get(0).getListaPassageiros().get(1));
-         * threadPassageiro1 = new Thread(estacoes.get(0).getListaPassageiros().get(2));
-         * threadPassageiro1.setName(comboio1.getNomeComboio());
-         * threadPassageiro1.start();
-         * try {
-         * threadPassageiro1.join();
-         * } catch (Exception ex) {
-         * }
-         * 
-         * Thread threadComboio1 = new Thread(comboio1);
-         * Thread threadComboio2 = new Thread(comboio2);
-         * Thread threadComboio3 = new Thread(comboio3);
-         * Thread threadComboio4 = new Thread(comboio4);
-         * threadComboio1.setName(comboio1.getNomeComboio());
-         * threadComboio2.setName(comboio2.getNomeComboio());
-         * threadComboio3.setName(comboio3.getNomeComboio());
-         * threadComboio4.setName(comboio4.getNomeComboio());
-         * threadComboio1.start();
-         * threadComboio2.start();
-         * threadComboio3.start();
-         * threadComboio4.start();
-         * try {
-         * threadComboio1.join();
-         * threadComboio2.join();
-         * threadComboio3.join();
-         * threadComboio4.join();
-         * } catch (Exception ex) {
-         * }
-         * 
-         * Thread threadHorarioConflictSolver1 = new Thread(
-         * new HorarioConflictSolver(Main.getAllComboios(),
-         * moduloGestaoConflitoLog.getLogWriter()));
-         * threadHorarioConflictSolver1.start();
-         * try {
-         * threadHorarioConflictSolver1.join();
-         * } catch (Exception ex) {
-         * }
-         * 
-         * Thread threadPassageiro2 = new
-         * Thread(estacoes.get(0).getListaPassageiros().get(0));
-         * threadPassageiro2 = new Thread(estacoes.get(0).getListaPassageiros().get(1));
-         * threadPassageiro2 = new Thread(estacoes.get(0).getListaPassageiros().get(2));
-         * threadPassageiro2.setName(comboio2.getNomeComboio());
-         * threadPassageiro2.start();
-         * try {
-         * threadPassageiro2.join();
-         * } catch (Exception ex) {
-         * }
-         * 
-         * threadComboio1 = new Thread(comboio1);
-         * threadComboio2 = new Thread(comboio2);
-         * threadComboio3 = new Thread(comboio3);
-         * threadComboio4 = new Thread(comboio4);
-         * threadComboio1.setName(comboio1.getNomeComboio());
-         * threadComboio2.setName(comboio2.getNomeComboio());
-         * threadComboio3.setName(comboio3.getNomeComboio());
-         * threadComboio4.setName(comboio4.getNomeComboio());
-         * threadComboio1.start();
-         * threadComboio2.start();
-         * threadComboio3.start();
-         * threadComboio4.start();
-         * try {
-         * threadComboio1.join();
-         * threadComboio2.join();
-         * threadComboio3.join();
-         * threadComboio4.join();
-         * } catch (Exception ex) {
-         * }
-         * 
-         * threadHorarioConflictSolver1 = new Thread(
-         * new HorarioConflictSolver(Main.getAllComboios(),
-         * moduloGestaoConflitoLog.getLogWriter()));
-         * threadHorarioConflictSolver1.start();
-         * try {
-         * threadHorarioConflictSolver1.join();
-         * } catch (Exception ex) {
-         * }
-         * 
-         * Thread threadPassageiro3 = new
-         * Thread(estacoes.get(0).getListaPassageiros().get(0));
-         * threadPassageiro3 = new Thread(estacoes.get(0).getListaPassageiros().get(1));
-         * threadPassageiro3 = new Thread(estacoes.get(0).getListaPassageiros().get(2));
-         * threadPassageiro3.setName(comboio3.getNomeComboio());
-         * threadPassageiro3.start();
-         * try {
-         * threadPassageiro3.join();
-         * } catch (Exception ex) {
-         * }
-         * 
-         * threadComboio1 = new Thread(comboio1);
-         * threadComboio2 = new Thread(comboio2);
-         * threadComboio3 = new Thread(comboio3);
-         * threadComboio4 = new Thread(comboio4);
-         * threadComboio1.setName(comboio1.getNomeComboio());
-         * threadComboio2.setName(comboio2.getNomeComboio());
-         * threadComboio3.setName(comboio3.getNomeComboio());
-         * threadComboio4.setName(comboio4.getNomeComboio());
-         * threadComboio1.start();
-         * threadComboio2.start();
-         * threadComboio3.start();
-         * threadComboio4.start();
-         * try {
-         * threadComboio1.join();
-         * threadComboio2.join();
-         * threadComboio3.join();
-         * threadComboio4.join();
-         * } catch (Exception ex) {
-         * }
-         * // System.out.println(comboio1.getNomeComboio() + "\n" +
-         * // comboio1.getEstacaoPartida().getNome() + "\n"
-         * // + comboio1.getEstacaoChegada().getNome() + "\n"
-         * // + comboio1.getHorarioComboio().getHoraPartida().toString());
-         * try {
-         * moduloGestaoConflitoLog.getLogWriter().close();
-         * } catch (IOException e) {
-         * e.printStackTrace();
-         * }
-         */
     }
 }

@@ -3,34 +3,54 @@ package trabalhopratico.Classes;
 import java.time.LocalTime;
 
 public class Horario {
-    // hora de partida do comboio
+    // Hora de partida do comboio
     private LocalTime horaPartida;
-    // hora de chegada do comboio
+    // Hora de chegada do comboio
     private LocalTime horaChegada;
 
-    //Construtor do horário
+    /**
+     * Construtor de horário
+     * 
+     * @param horaPartida hora de partida
+     * @param horaChegada hora de chegada
+     */
     public Horario(LocalTime horaPartida, LocalTime horaChegada) {
         this.horaPartida = horaPartida;
         this.horaChegada = horaChegada;
     }
 
-    // getter da hora de partida
     /**
+     * Retorna a hora de partida
      * 
      * @return hora de partida
      */
     public LocalTime getHoraPartida() {
         return this.horaPartida;
     }
-    // setter da hora de partida
+
+    /**
+     * Muda a hora de partida para a hora de partida enviada por referência
+     * 
+     * @param horaPartida hora de partida enviada por referência
+     */
     public void setHoraPartida(LocalTime horaPartida) {
         this.horaPartida = horaPartida;
     }
-    // getter da hora de chegada
+
+    /**
+     * Retorna a hora de chegada
+     * 
+     * @return hora de chegada
+     */
     public LocalTime getHoraChegada() {
         return this.horaChegada;
     }
-    // setter da hora de chegada
+
+    /**
+     * Muda a hora de chegada para a hora de chegada enviada por referência
+     * 
+     * @param horaChegada hora de chegada enviada por referência
+     */
     public void setHoraChegada(LocalTime horaChegada) {
         this.horaChegada = horaChegada;
     }

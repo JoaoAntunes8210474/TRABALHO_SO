@@ -35,7 +35,16 @@ public class Comboio implements Runnable {
     // boolean de acabar a viagem
     private boolean acabouViagem;
 
-    // Construtor
+    /**
+     * Construtor do comboio
+     * 
+     * @param nomeComboio nome do comboio
+     * @param estacaoPartida estação de partida do comboio
+     * @param destinoFinal estação de destino do comboio
+     * @param tempoPartida hora de partida do comboio
+     * @param troco troço por onde passa o comboio
+     * @param logWriter escritor de conflitos
+     */
     public Comboio(String nomeComboio, Estacao estacaoPartida, Estacao destinoFinal,
             LocalTime tempoPartida, Linha troco, FileWriter logWriter) {
         this.nomeComboio = nomeComboio;
@@ -51,71 +60,109 @@ public class Comboio implements Runnable {
         this.acabouViagem = false;
     }
 
-    // getter do número de passageiros
+    /**
+     * Retorna o número de passageiros no comboio
+     * 
+     * @return número de passageiros no comboio
+     */
     public int getCount() {
         return this.count;
     }
 
-    // getter do número de atrasos
+    /**
+     * Retorna o número de atrasos que o comboio teve
+     * 
+     * @return número de atrasos que o comboio teve
+     */
     public int getNumberOfDelays() {
         return this.countDelays;
     }
 
-    // increments the number of delays
+    /**
+     * Incrementa o número de atrasos que o comboio teve
+     */
     protected void incrementNumberOfDelays() {
         this.countDelays++;
     }
 
     /**
-     * Returns a copy of the list of passengers
+     * Retorna uma cópia da lista de passageiros
      * 
-     * @return copy of the list of passengers
+     * @return cópia da lista de passageiros
      */
     public Passageiro[] getListaPassageiros() {
         return Arrays.copyOf(this.listaPassageiros, this.listaPassageiros.length);
     }
 
     /**
-     * Returns
+     * Retorna a estação de partida do comboio
      * 
-     * @return
+     * @return estação de partida do comboio
      */
     public Estacao getEstacaoPartida() {
         return this.estacaoPartida;
     }
 
+    /**
+     * Retorna a lista de paragens intermédias da viagem do comboio
+     * 
+     * @return lista de paragens intermédias da viagem do comboio
+     */
     public ArrayList<Estacao> getEstacaoParagem() {
         return this.estacoesParagem;
     }
 
+    /**
+     * Retorna a estação de destino do comboio
+     * @return estação de destino do comboio
+     */
     public Estacao getDestinoFinal() {
         return this.destinoFinal;
     }
 
+    /**
+     * Retorna o horário do comboio
+     * 
+     * @return horário do comboio
+     */
     public Horario getHorarioComboio() {
         return this.horario;
     }
 
-    public Linha getDirecaoComboio() {
+    /**
+     * Retorna o troço do comboio
+     * 
+     * @return troço do comboio
+     */
+    public Linha getTrocoComboio() {
         return this.troco;
     }
 
+    /**
+     * Retorna o nome do comboio
+     * 
+     * @return nome do comboio
+     */
     public String getNomeComboio() {
         return this.nomeComboio;
     }
 
+    /**
+     * Retorna uma indicação de se o comboio já terminou a sua viagem
+     * 
+     * @return indicação de se o comboio já terminou a sua viagem
+     */
     public boolean getHasFinished() {
         return this.acabouViagem;
     }
 
     /**
-     * Adds a passenger to the train if his ticket is valid
+     * Adiciona um passageiro ao comboio se ele tiver o bilhete válido
      * 
-     * @param passageiro the passenger to add to the train
-     * @throws MaxCapacityException    when the train is full
-     * @throws InvalidBilheteException when the passenger doesn't have a valid
-     *                                 ticket
-     * @throws IOException
+     * @param passageiro passageiro a adicionar ao comboio
+     * @throws MaxCapacityException quando o comboio atingiu o limite de passageiros
+     * @throws InvalidBilheteException quando o passageiro tem um bilhete inválido
+     * @throws IOException quando houve problema a acessar o ficheiro de escrever conflitos
      */
 
     public void add(Passageiro passageiro) throws MaxCapacityException, InvalidBilheteException, IOException {
@@ -131,6 +178,11 @@ public class Comboio implements Runnable {
         }
     }
 
+    /**
+     * Remove o passageiro da lista na posição recebida por referência e ajusta as posições seguintes
+     * 
+     * @param indexRemove posição na lista do passageiro a remover
+     */
     public void remove(int indexRemove) {
         for (int i = indexRemove; i < listaPassageiros.length - 1; i++) {
             listaPassageiros[i] = listaPassageiros[i + 1];
@@ -139,11 +191,12 @@ public class Comboio implements Runnable {
         this.count--;
     }
 
-    public void removeAll() {
-        Arrays.fill(this.listaPassageiros, null);
-        this.count = 0;
-    }
-
+    /**
+     * Retorna o passageiro da lista de passageiros na posição recebida por referência
+     * 
+     * @param integer posição do passageiro na lista
+     * @return o passageiro da lista de passageiros na posição recebida por referência 
+     */
     public Passageiro get(int integer) {
         return this.listaPassageiros[integer];
     }
@@ -182,6 +235,12 @@ public class Comboio implements Runnable {
         this.estacoesParagem.addAll(tempComboio.estacoesParagem);
     }
 
+    /**
+     * Método usado para simular a viagem do comboio
+     * Deteta em que direção é que o comboio anda, por exemplo, se o comboio vai da estação B para a A ou se ele vai da estação A para a B
+     * À medida que a simulação corre, vai alterando as estações de partida para a próxima estação estação intermédia, até chegar ao destino final
+     * Quando chega à estação de destino, muda o indicador boolean de ter acabado a viagem
+     */
     @Override
     public void run() {
         try {
