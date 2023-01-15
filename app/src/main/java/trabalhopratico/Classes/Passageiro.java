@@ -1,55 +1,48 @@
 package trabalhopratico.Classes;
 
 public class Passageiro implements Runnable{
-    /*
-     * Nome do passageiro
-     */
+    // nome do passageiro
     private String name;
-    /*
-     * Nif do passageiro
-     */
+    // nif do passageiro
     private int nif;
-
-    /*
-     * Bilhete do passageiro
-     */
+    // Bilhete do passageiro
     private Bilhete bilhete;
-
-    /**
-     * Comboio que o passageiro tem de entrar para ir para a sua estação de destino
-     */
+    // Comboio que o passageiro tem de entrar para ir para a sua estação de destino
     private Comboio comboioEntrar;
 
+    // Construtor
     public Passageiro(String name, int nif, Bilhete bilhete) {
         this.name = name;
         this.nif = nif;
         this.bilhete = bilhete;
     }
 
+    // getter do nome
     public String getName() {
         return this.name;
     }
-
+    // setter do nome
     public void setName(String name) {
         this.name = name;
     }
-
+    // getter do nif
     public int getNif() {
         return this.nif;
     }
-
+    // setter do nif
     public void setNif(int nif) {
         this.nif = nif;
     }
-
+    // setter do comboio a entrar
     public void setComboioEntrar(Comboio comboioEntrar) {
         this.comboioEntrar = comboioEntrar;
     }
-
+    // getter do bilhete
     public Bilhete getBilhete() {
         return this.bilhete;
     }
-
+    
+    @Override
     public void run() {
         try {
             this.bilhete.getEstacaoPartida().getSemaphore().acquire();
