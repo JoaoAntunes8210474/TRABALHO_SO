@@ -13,7 +13,7 @@ public class Estacao {
 
     private static final int MAX_LINHAS = 2;
     //
-    private static final int MAX_COMBOIOS = 10;
+    private static final int MAX_COMBOIOS = 3;
 
     private String nome;
 
