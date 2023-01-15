@@ -1,0 +1,63 @@
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro i tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro m tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro k tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro l tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro j tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro H tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro G tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro I tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro J tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Comboio Sobrelotado Conflict Solver] - O Passageiro K tentou entrar no Comboio 1, no entanto, ele já estava cheio.
+[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 6 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 7 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 5 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 6 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 8 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 1 tinha conflito de horário com o Comboio 10 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 2 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 2 tinha conflito de horário com o Comboio 1 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 3 tinha conflito de horário com o Comboio 10 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 4 tinha conflito de horário com o Comboio 3 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 5 tinha conflito de horário com o Comboio 4 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 7 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 9 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 8 e o seu horário foi alterado.
+[Horário Conflict Solver] - O Comboio 10 tinha conflito de horário com o Comboio 9 e o seu horário foi alterado.
